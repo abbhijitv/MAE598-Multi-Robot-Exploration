@@ -1,4 +1,3 @@
-
 # import statements
 from dataclasses import dataclass, field
 import math
