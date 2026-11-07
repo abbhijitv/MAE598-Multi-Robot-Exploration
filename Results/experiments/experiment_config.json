@@ -1,0 +1,215 @@
+{
+  "duration_s": 60.0,
+  "short_smoke_test": false,
+  "default_configuration": {
+    "width": 20.0,
+    "height": 20.0,
+    "grid_size": 0.25,
+    "robot_count": 5,
+    "robot_radius": 0.2,
+    "sensing_radius": 2.5,
+    "robot_interaction_radius": 4.0,
+    "obstacle_interaction_radius": 2.0,
+    "robot_gain": 2.0,
+    "obstacle_gain": 0.35,
+    "mass": 1.0,
+    "damping": 1.5,
+    "max_speed": 1.5,
+    "max_acceleration": 3.0,
+    "epsilon": 1e-06,
+    "obstacle_point_spacing": 0.5,
+    "duration": 60.0,
+    "dt": 0.05,
+    "seed": 598,
+    "controller": "baseline",
+    "discovery_gain": 1.2,
+    "discovery_radius": 5.0,
+    "obstacles": [
+      [
+        9.0,
+        7.0,
+        1.5
+      ],
+      [
+        11.0,
+        13.0,
+        2.0
+      ],
+      [
+        15.0,
+        6.0,
+        1.3
+      ]
+    ]
+  },
+  "obstacle_layouts": {
+    "original": [
+      [
+        9.0,
+        7.0,
+        1.5
+      ],
+      [
+        11.0,
+        13.0,
+        2.0
+      ],
+      [
+        15.0,
+        6.0,
+        1.3
+      ]
+    ],
+    "open": [],
+    "cluttered": [
+      [
+        9.0,
+        7.0,
+        1.5
+      ],
+      [
+        11.0,
+        13.0,
+        2.0
+      ],
+      [
+        15.0,
+        6.0,
+        1.3
+      ],
+      [
+        7.0,
+        3.0,
+        1.0
+      ],
+      [
+        6.5,
+        16.5,
+        1.0
+      ],
+      [
+        14.5,
+        16.5,
+        1.0
+      ],
+      [
+        16.5,
+        11.0,
+        1.0
+      ],
+      [
+        11.0,
+        2.5,
+        1.0
+      ]
+    ]
+  },
+  "cases": [
+    [
+      "robot_counts",
+      "robots_3",
+      3,
+      598,
+      "original"
+    ],
+    [
+      "robot_counts",
+      "robots_5",
+      5,
+      598,
+      "original"
+    ],
+    [
+      "robot_counts",
+      "robots_8",
+      8,
+      598,
+      "original"
+    ],
+    [
+      "environments",
+      "original",
+      5,
+      598,
+      "original"
+    ],
+    [
+      "environments",
+      "open",
+      5,
+      598,
+      "open"
+    ],
+    [
+      "environments",
+      "cluttered",
+      5,
+      598,
+      "cluttered"
+    ],
+    [
+      "random_seeds",
+      "seed_598",
+      5,
+      598,
+      "original"
+    ],
+    [
+      "random_seeds",
+      "seed_42",
+      5,
+      42,
+      "original"
+    ],
+    [
+      "random_seeds",
+      "seed_123",
+      5,
+      123,
+      "original"
+    ],
+    [
+      "random_seeds",
+      "seed_2026",
+      5,
+      2026,
+      "original"
+    ],
+    [
+      "random_seeds",
+      "seed_7",
+      5,
+      7,
+      "original"
+    ]
+  ],
+  "threshold_method": "First recorded sample at or above threshold; no interpolation",
+  "unreached_thresholds": "Empty numeric CSV field plus explicit not reached status",
+  "statistics": "Five seeds in original environment, sample standard deviation with ddof=1",
+  "duplicate_policy": "Execute once per exact configuration, reference canonical result",
+  "completed": true,
+  "unique_simulation_runs": 18,
+  "comparison_entries": 22,
+  "runtime_versions": {
+    "python": "3.9.6 (default, Nov 10 2023, 13:38:27) \n[Clang 15.0.0 (clang-1500.1.0.2.5)]",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.9.4",
+    "scipy": "1.13.1"
+  },
+  "source_sha256": {
+    "Code/simulation.py": "dd045045e45e4e788e97e01c41ff0df08922926eba56eb42017ca7b6e54f5a0d",
+    "Code/config.py": "87784701d3bcf0e920caba8d2e99d0dce48916445b9077c525f09c7c7f9f16a6",
+    "Code/controllers.py": "ec0ca88a2d3ac375b3d61ceaf6f2d0b69f561c0cacc9f339cc17d4e8e27349fa",
+    "Code/visualization.py": "52aa1b65e985892f64078e458830d9e297b027c326cc8af439671a7ffb9dcbbc",
+    "Code/test_baseline.py": "6b9699ff7a67748d621a3eca0154423ed55835fe665bb88e6a7c8d9e6436c7b0",
+    "Code/comparison.py": "fabb33d17ce5f7163a63d3769ee0454c5f195f626750c55a49a45ad8a1245e43",
+    "Code/test_discovery.py": "93a8c8a6667926278c55a7c92f2a4b4558c6a1e6dadc7fd732ec9fab64688438",
+    "Code/experiments.py": "f140dda03fb325eb35e85069f5f55bc2e84ea92e07e3b71e619a6027c5c1c82e",
+    "Code/environment.py": "c5e688d022b40c3c2621e4f1bb44642d85c813737e76b4f957d8b3afef98eb5f",
+    "Code/test_experiments.py": "cf27e52a1ff7f35b6447f847ff682c039e24165493cb87d49de3a65596971237",
+    "Code/main.py": "0a14b5148c779620e35819a31bf8a732d2c237f23ddb502d189be0bb42ba1d63",
+    "Code/robots.py": "7ed14a13bfd1d79432261ab7c2eff03f13783b1be8f68b3d8efe4e4de1e0114f",
+    "Code/validation.py": "50d31a633e438ca1bdbdba544350673290302ebd21b590e26508c64877afe77b"
+  }
+}

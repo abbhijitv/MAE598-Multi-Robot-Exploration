@@ -1,0 +1,3 @@
+controller,seed_count,mean_final_coverage_percent,sample_std_final_coverage_percent,mean_total_travel_distance
+baseline,5,23.524699599465954,0.4782765707900679,11.495292617829646
+discovery,5,93.94859813084113,6.551932121337363,174.28962765249088

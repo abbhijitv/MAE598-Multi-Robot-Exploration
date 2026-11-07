@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "finite_states_and_energy": true,
+    "inside_proved_position_ball": true,
+    "fixed_active_set": true,
+    "collision_free": true,
+    "energy_nonincrease_with_roundoff_tolerance": true,
+    "numerical_energy_balance_within_1e_9": true,
+    "initial_energy_inside_proved_sublevel": true,
+    "observed_recovery": true
+  },
+  "initial_energy_upper_bound": 1.018e-05,
+  "initial_relative_energy": 5.828446033584456e-06,
+  "final_relative_energy": 1.1102230246251565e-16,
+  "maximum_energy_increment": 4.440892098500626e-16,
+  "maximum_energy_balance_error": 1.606688898557143e-10,
+  "initial_distance_to_equilibrium": 0.0036055512754639,
+  "final_distance_to_equilibrium": 1.8239484938357339e-09,
+  "maximum_distance_to_equilibrium": 0.003758752315282152,
+  "final_speed": 4.4149171914975915e-10,
+  "maximum_speed": 0.001385781849560599,
+  "maximum_acceleration": 0.004555207883085598,
+  "minimum_robot_body_wall_clearance": 1.2968540402067272
+}

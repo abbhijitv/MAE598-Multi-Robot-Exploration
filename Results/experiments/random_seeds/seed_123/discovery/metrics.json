@@ -1,0 +1,20 @@
+{
+  "controller": "discovery",
+  "robot_count": 5,
+  "seed": 123,
+  "initial_coverage_percent": 14.218958611481977,
+  "final_coverage_percent": 97.7136181575434,
+  "coverage_gain_pp": 83.49465954606141,
+  "total_travel_distance": 162.16011025434358,
+  "collision_count": 0,
+  "safety_interventions": 0,
+  "status": "completed",
+  "time_50_s": 11.600000000000001,
+  "threshold_50_status": "reached",
+  "time_75_s": 22.85,
+  "threshold_75_status": "reached",
+  "time_90_s": 40.900000000000006,
+  "threshold_90_status": "reached",
+  "result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/random_seeds/seed_123/discovery",
+  "reused_run": false
+}

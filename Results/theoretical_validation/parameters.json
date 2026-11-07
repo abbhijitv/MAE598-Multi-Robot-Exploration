@@ -1,0 +1,43 @@
+{
+  "configuration": {
+    "width": 3.0,
+    "height": 3.0,
+    "grid_size": 0.25,
+    "robot_count": 1,
+    "robot_radius": 0.2,
+    "sensing_radius": 2.5,
+    "robot_interaction_radius": 4.0,
+    "obstacle_interaction_radius": 2.0,
+    "robot_gain": 2.0,
+    "obstacle_gain": 0.35,
+    "mass": 1.0,
+    "damping": 1.5,
+    "max_speed": 1.5,
+    "max_acceleration": 3.0,
+    "epsilon": 1e-06,
+    "obstacle_point_spacing": 0.5,
+    "duration": 20.0,
+    "dt": 0.01,
+    "seed": 598,
+    "controller": "baseline",
+    "discovery_gain": 1.2,
+    "discovery_radius": 5.0,
+    "obstacles": []
+  },
+  "method": "DOP853",
+  "rtol": 1e-11,
+  "atol": 1e-13,
+  "maximum_internal_step_s": 0.02,
+  "output_interval_s": 0.01,
+  "initial_position": [
+    1.503,
+    1.498
+  ],
+  "initial_velocity": [
+    0.001,
+    -0.0005
+  ],
+  "model": "Continuous fixed-field baseline ODE; no caps or safety resets applied",
+  "energy": "Regularized radial-potential quadrature plus kinetic energy",
+  "quadrature_absolute_and_relative_tolerances": 1e-12
+}

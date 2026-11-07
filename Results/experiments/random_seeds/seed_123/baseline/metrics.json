@@ -1,0 +1,20 @@
+{
+  "controller": "baseline",
+  "robot_count": 5,
+  "seed": 123,
+  "initial_coverage_percent": 14.218958611481977,
+  "final_coverage_percent": 23.247663551401867,
+  "coverage_gain_pp": 9.02870493991989,
+  "total_travel_distance": 8.596662629875985,
+  "collision_count": 0,
+  "safety_interventions": 0,
+  "status": "completed",
+  "time_50_s": null,
+  "threshold_50_status": "not reached",
+  "time_75_s": null,
+  "threshold_75_status": "not reached",
+  "time_90_s": null,
+  "threshold_90_status": "not reached",
+  "result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/random_seeds/seed_123/baseline",
+  "reused_run": false
+}

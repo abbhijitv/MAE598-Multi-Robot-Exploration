@@ -1,0 +1,20 @@
+{
+  "controller": "discovery",
+  "robot_count": 5,
+  "seed": 598,
+  "initial_coverage_percent": 12.703125,
+  "final_coverage_percent": 96.328125,
+  "coverage_gain_pp": 83.625,
+  "total_travel_distance": 176.321723783692,
+  "collision_count": 0,
+  "safety_interventions": 0,
+  "status": "completed",
+  "time_50_s": 18.5,
+  "threshold_50_status": "reached",
+  "time_75_s": 40.150000000000006,
+  "threshold_75_status": "reached",
+  "time_90_s": 53.5,
+  "threshold_90_status": "reached",
+  "result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/environments/open/discovery",
+  "reused_run": false
+}

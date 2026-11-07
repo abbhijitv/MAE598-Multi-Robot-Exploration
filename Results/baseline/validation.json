@@ -1,0 +1,20 @@
+{
+  "baseline_short": {
+    "timesteps": 101,
+    "position_rows": 505,
+    "final_coverage_percent": 21.295060080106808,
+    "all_saved_states_and_swept_moves_safe": true,
+    "csv_grid_consistency": true,
+    "plots_readable": true
+  },
+  "baseline": {
+    "timesteps": 1201,
+    "position_rows": 6005,
+    "final_coverage_percent": 24.132176234979973,
+    "all_saved_states_and_swept_moves_safe": true,
+    "csv_grid_consistency": true,
+    "plots_readable": true,
+    "animation_frames": 151
+  },
+  "automated_tests": "12 passed using unittest"
+}

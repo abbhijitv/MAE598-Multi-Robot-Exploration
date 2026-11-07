@@ -1,0 +1,20 @@
+{
+  "initial_coverage_percent": 11.949265687583445,
+  "final_coverage_percent": 82.71028037383178,
+  "minimum_robot_center_distance": 0.9765343178770555,
+  "safety_interventions": 0,
+  "maximum_speed": 1.158636760435869,
+  "final_maximum_speed": 0.646030188557047,
+  "path_lengths": [
+    35.881079044139085,
+    35.19750238456144,
+    37.96397553919829,
+    35.93780859715333,
+    35.662174231107805
+  ],
+  "coverage_gain_percentage_points": 70.76101468624833,
+  "total_travel_distance": 180.64253979615992,
+  "coverage_gain_last_10_seconds": 7.276368491321762,
+  "last_new_coverage_time_s": 60.0,
+  "mean_final_speed": 0.5798484069806769
+}

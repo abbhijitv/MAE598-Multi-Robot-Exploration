@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "finite_states": true,
+    "inside_boundaries": true,
+    "swept_obstacle_clearance": true,
+    "swept_robot_separation": true,
+    "speed_limits": true,
+    "acceleration_limits_outside_safety_stops": true,
+    "coverage_bounds": true,
+    "exploration_monotonic": true,
+    "coverage_counts_match": true,
+    "obstacle_cells_unexplored": true,
+    "safety_events_match_count": true
+  },
+  "time_samples": 1201,
+  "minimum_boundary_clearance": 1.3088903244913603,
+  "minimum_swept_obstacle_clearance": 0.9061553303400245,
+  "minimum_swept_robot_center_distance": 0.6874006497911825,
+  "robot_collision_intervals": 0,
+  "obstacle_collision_intervals": 0,
+  "safety_interventions": 0,
+  "safety_intervention_end_times_s": []
+}

@@ -1,0 +1,15 @@
+{
+  "initial_coverage_percent": 14.218958611481977,
+  "final_coverage_percent": 23.247663551401867,
+  "minimum_robot_center_distance": 1.3183090985410184,
+  "safety_interventions": 0,
+  "maximum_speed": 0.4978918033748055,
+  "final_maximum_speed": 1.6427370806502713e-33,
+  "path_lengths": [
+    2.2835224489186423,
+    1.4346353280914532,
+    1.3926731116321551,
+    1.6390083965762552,
+    1.8468233446574815
+  ]
+}
