@@ -40,7 +40,10 @@ Coverage is the percentage of free grid-cell centers sensed by at least one robo
 The baseline uses $F_i=F_{\mathrm{rr},i}+F_{\mathrm{obs},i}$. Discovery adds
 
 $$
-F_{\mathrm{disc},i}=k_d\frac{q_i^{*}-x_i}{\max(\lVert q_i^{*}-x_i\rVert,\epsilon)}.
+F_{\mathrm{disc},i}
+=
+k_d \frac{q_i^{*}-x_i}
+{\max\left(\lVert q_i^{*}-x_i\rVert,\epsilon\right)}
 $$
 
 The selected cell $q_i^{*}$ is the nearest eligible center within the discovery radius: known free in that robot's private map and not yet privately explored. Ties use grid row/column order. Targets are selected again at each step; an empty candidate set gives zero attraction. This is the singleton, distance-normalized choice of the project's weighted discovery-force family, with constant scaling. Setting discovery gain to zero reproduces baseline motion.
