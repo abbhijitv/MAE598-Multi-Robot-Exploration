@@ -125,6 +125,6 @@ def make_comparisons(root):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Plot completed Step 14 experiment data')
+    parser = argparse.ArgumentParser(description='Plot completed experiment data')
     parser.add_argument('output', type=Path)
     make_comparisons(parser.parse_args().output)

@@ -116,8 +116,6 @@ class ExperimentTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         # saved file hashes for the comparison
         manifest = root / 'Results/experiments/preservation.json'
-        if not manifest.exists():
-            manifest = Path('/tmp/mae_step14_preserved.json')
         recorded = json.loads(manifest.read_text())
         config_names = {'robot_count': 'robot_c', 'robot_radius': 'robot_r',
                         'sensing_radius': 'sensing_r', 'robot_interaction_radius': 'robot_interact_r',

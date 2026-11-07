@@ -19,11 +19,15 @@ The controllers are inspired by the literature listed below; they adapt selected
 
 For robot positions $x_i$ and velocities $v_i$, the nominal dynamics are
 
-$$\dot x_i=v_i,\qquad m\dot v_i=F_i-bv_i.$$
+$$
+\dot x_i=v_i,\qquad m\dot v_i=F_i-bv_i.
+$$
 
 Each repulsive component sums
 
-$$k\frac{x_i-p}{\|x_i-p\|^3+\epsilon}$$
+$$
+k\frac{x_i-p}{\lVert x_i-p\rVert^3+\epsilon}
+$$
 
 over neighboring robots or sampled obstacle/wall points $p$ within its interaction radius. Robot self-interaction is excluded. Circle perimeters and workspace walls are sampled at intervals of at most 0.5 unit.
 
@@ -33,11 +37,13 @@ Coverage is the percentage of free grid-cell centers sensed by at least one robo
 
 ## Baseline and Discovery Controllers
 
-The baseline uses $F_i=F_{rr,i}+F_{obs,i}$. Discovery adds
+The baseline uses $F_i=F_{\mathrm{rr},i}+F_{\mathrm{obs},i}$. Discovery adds
 
-$$F_{disc,i}=k_d\frac{q_i^*-x_i}{\max(\|q_i^*-x_i\|,\epsilon)}.$$
+$$
+F_{\mathrm{disc},i}=k_d\frac{q_i^{*}-x_i}{\max(\lVert q_i^{*}-x_i\rVert,\epsilon)}.
+$$
 
-The selected cell $q_i^*$ is the nearest eligible center within the discovery radius: known free in that robot's private map and not yet privately explored. Ties use grid row/column order. Targets are selected again at each step; an empty candidate set gives zero attraction. This is the singleton, distance-normalized choice of the project's weighted discovery-force family, with constant scaling. Setting discovery gain to zero reproduces baseline motion.
+The selected cell $q_i^{*}$ is the nearest eligible center within the discovery radius: known free in that robot's private map and not yet privately explored. Ties use grid row/column order. Targets are selected again at each step; an empty candidate set gives zero attraction. This is the singleton, distance-normalized choice of the project's weighted discovery-force family, with constant scaling. Setting discovery gain to zero reproduces baseline motion.
 
 Each robot knows its pose, workspace bounds and grid coordinates. Occupancy is classified within 5 units, while exploration counts only within 2.5 units. This longer occupancy lookahead is an explicit added sensing assumption. Maps persist locally and are never exchanged; robots may revisit areas already explored by teammates.
 
@@ -65,7 +71,7 @@ Use Python 3.9 and run these commands from the repository root:
 ```sh
 python3.9 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r Code/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 Pinned runtime dependencies are NumPy 2.0.2, SciPy 1.13.1, Matplotlib 3.9.4, Pandas 2.3.3 and Pillow 11.3.0. SciPy is used for the separate theoretical analysis. To use pytest, install it separately with `python -m pip install pytest`; it is not listed in the runtime requirements. The standard-library unittest runner is also supported.
@@ -102,11 +108,15 @@ The runner writes `all_results.csv`, `summary_statistics.csv`, per-run metrics a
 
 For the continuous conservative baseline, a compatible radial potential is
 
-$$\phi(r)=k\int_r^R\frac{s}{s^3+\epsilon}\,ds\quad(r<R),\qquad\phi(r)=0\quad(r\ge R).$$
+$$
+\phi(r)=k\int_r^R\frac{s}{s^3+\epsilon}\,ds\quad(r<R),\qquad\phi(r)=0\quad(r\ge R).
+$$
 
-Counting robot pairs once, let $U$ be the summed potential and $E=U+\frac{m}{2}\sum_i\|v_i\|^2$. On a smooth region with a fixed active interaction set,
+Counting robot pairs once, let $U$ be the summed potential and $E=U+\frac{m}{2}\sum_i\lVert v_i\rVert^2$. On a smooth region with a fixed active interaction set,
 
-$$\dot E=-b\sum_i\|v_i\|^2.$$
+$$
+\dot E=-b\sum_i\lVert v_i\rVert^2.
+$$
 
 Energy dissipation and conditional convergence to the equilibrium set require the conservative continuous model, fixed active sets and the stated regularity and compact invariant-set assumptions. Hard interaction cutoffs, target switching, changing maps, clipping and safety resets prevent automatic transfer to the full simulator.
 
@@ -170,8 +180,8 @@ The proposed public contents are:
 MAE598-Multi-Robot-Exploration/
 ├── .gitignore
 ├── README.md
+├── requirements.txt
 ├── Code/
-│   ├── requirements.txt
 │   ├── config.py
 │   ├── environment.py
 │   ├── controllers.py
