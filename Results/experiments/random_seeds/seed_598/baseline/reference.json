@@ -1,5 +1,5 @@
 {
-  "canonical_result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/robot_counts/robots_5/baseline",
+  "canonical_result_folder": "Results/experiments/robot_counts/robots_5/baseline",
   "configuration": {
     "width": 20.0,
     "height": 20.0,

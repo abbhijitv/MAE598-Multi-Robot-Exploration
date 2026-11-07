@@ -15,6 +15,6 @@
   "threshold_75_status": "reached",
   "time_90_s": 41.0,
   "threshold_90_status": "reached",
-  "result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/robot_counts/robots_5/discovery",
+  "result_folder": "Results/experiments/robot_counts/robots_5/discovery",
   "reused_run": false
 }

@@ -6,6 +6,10 @@ This project compares repulsion-only deployment with local discovery-driven expl
 
 The controllers are inspired by the literature listed below; they adapt selected ideas rather than reproduce a complete published algorithm.
 
+![Discovery robot trajectories in the historical five-robot environment](Results/discovery/trajectories.png)
+
+*Five robots explore around circular obstacles using local discovery attraction. Colored paths show the historical run that reached 99.3158% coverage in 60 seconds.*
+
 ## Key Features
 
 - Baseline robot-to-robot and robot-to-obstacle repulsion.
@@ -151,7 +155,15 @@ The original discovery run traveled 173.7809 units. All nine unique historical p
 
 Both videos were regenerated using the latest simulation and visualization code with the saved historical configuration: seed 598, obstacle gain 0.35, and the original obstacle layout (9,7,1.5), (11,13,2), (15,6,1.3). They use identical initial conditions and environment settings for a fair comparison. Final coverage is 24.1322% for baseline and 99.3158% for discovery. Initial coverage is approximately 13.57% because the robots sense their surroundings at time zero. The baseline stops exploring when its finite-range repulsive forces vanish and damping removes its remaining motion, whereas discovery continues exploring.
 
-Both H.264 MP4 videos use yuv420p, 960×960 resolution, 20 fps and 1,201 frames, with a duration of 60.05 seconds for the complete 60-second simulation. Playback is approximately real time; the extra frame includes both simulation endpoints. Thin, semi-transparent robot trajectory trails preserve each robot's color, with solid robot markers drawn above them. Obstacles, explored regions, coverage percentages and simulation timestamps remain visible. The videos have no audio and were rendered directly using a temporary rendering script and FFmpeg.
+Both H.264 MP4 videos use yuv420p, 960×960 resolution, 20 fps and 1,201 frames, with a duration of 60.05 seconds for the complete 60-second simulation. Playback is approximately real time; the extra frame includes both simulation endpoints. Thin, semi-transparent robot trajectory trails preserve each robot's color, with solid robot markers drawn above them. Obstacles, explored regions, coverage percentages and simulation timestamps remain visible. The videos have no audio and can be regenerated with `Code/render_videos.py` and FFmpeg.
+
+Install the pinned Python dependencies from `requirements.txt` and FFmpeg with `ffprobe` and the `libx264` encoder available on `PATH`. From the repository root, render a separate copy without changing the published videos:
+
+```sh
+python Code/render_videos.py --output /tmp/mae598_video_check
+```
+
+The script loads the saved historical parameters and initial states, verifies both complete simulations against the saved CSVs, checks paired inputs, and validates the encoded MP4s. It uses 960×960, 20 fps, 1,201 frames, linewidth 1.1 and trail alpha 0.55. To deliberately replace the videos in `Videos/`, run `python Code/render_videos.py --overwrite`. Existing destinations require explicit overwrite permission; output under `Results/` is refused. Encoded bytes may vary with FFmpeg, fonts and platform, while simulation histories and video specifications are checked.
 
 ## Testing and Reproducibility
 
@@ -172,11 +184,11 @@ With the selected canonical numerical artifacts retained, historical replay is a
 python Code/experiments.py --verify --output Results/experiments --verification-output Results/replay_check_repeat.json
 ```
 
-Replay restores saved parameters, including older configuration-name aliases, and compares states, coverage, grids, discovery targets, private maps, safety events and summary metrics. The separate verification destination preserves the supplied records. Historical CSVs contain absolute original output paths; the resolver locates matching canonical folders under the current experiment hierarchy. Keep that hierarchy intact when copying the repository.
+Replay restores saved parameters, including older configuration-name aliases, and compares states, coverage, grids, discovery targets, private maps, safety events and summary metrics. The separate verification destination preserves the supplied records. Experiment tables, metrics and duplicate-run references use repository-relative output paths. The resolver also supports older absolute paths by locating matching canonical folders under the current experiment hierarchy. Keep that hierarchy intact when copying the repository.
 
 ## Repository Structure
 
-The proposed public contents are:
+The published repository contains:
 
 ```text
 MAE598-Multi-Robot-Exploration/
@@ -190,6 +202,7 @@ MAE598-Multi-Robot-Exploration/
 │   ├── robots.py
 │   ├── simulation.py
 │   ├── main.py
+│   ├── render_videos.py
 │   ├── visualization.py
 │   ├── validation.py
 │   ├── experiments.py
@@ -209,7 +222,7 @@ MAE598-Multi-Robot-Exploration/
     └── discovery.mp4
 ```
 
-Selected results retain presentation figures, configurations, summaries and the numerical artifacts needed by tests and historical replay. Repeated experiment plots, GIF copies and local working materials are excluded from the proposed public contents.
+Selected results retain presentation figures, configurations, summaries and the numerical artifacts needed by tests and historical replay. Repeated experiment plots, GIF copies and local working materials are excluded from the public repository.
 
 ## Limitations
 

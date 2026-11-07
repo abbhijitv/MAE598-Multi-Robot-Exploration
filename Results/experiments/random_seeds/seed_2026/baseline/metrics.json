@@ -15,6 +15,6 @@
   "threshold_75_status": "not reached",
   "time_90_s": null,
   "threshold_90_status": "not reached",
-  "result_folder": "/Users/abbhijitvenkatachalam/Documents/MAE598 Project/Results/experiments/random_seeds/seed_2026/baseline",
+  "result_folder": "Results/experiments/random_seeds/seed_2026/baseline",
   "reused_run": false
 }
