@@ -1,15 +1,35 @@
 # import statements
 import unittest
+from unittest.mock import patch
 import numpy as np
 from config import Config
 from controllers import repulsion, baseline_forces
 from environment import Environment
-from robots import advance
+from robots import advance, initial_positions
 from simulation import run_simulation
 
 
 # baseline tests class
 class BaselineTests(unittest.TestCase):
+    # function to test robot placement on the last attempt
+    def test_initial_positions_on_last_attempt(self):
+        c = Config(robot_c=2, obstacles=[])
+        env = Environment(c)
+
+        with patch.object(env, 'valid_positions', side_effect=[True] + [False] * 9998 + [True]) as valid:
+            positions = initial_positions(env, c)
+
+        self.assertEqual(valid.call_count, 10000)
+        self.assertEqual(positions.shape, (2, 2))
+        np.testing.assert_array_equal(positions, valid.call_args.args[0])
+        self.assertTrue(env.valid_positions(positions))
+
+        with patch.object(env, 'valid_positions', return_value=False) as valid:
+            with self.assertRaises(ValueError):
+                initial_positions(env, c)
+
+        self.assertEqual(valid.call_count, 10000)
+
     # function to test robot repulsion direction and value
     def test_robot_repulsion_direction_and_value(self):
         c = Config(obstacles=[], robot_c=2)

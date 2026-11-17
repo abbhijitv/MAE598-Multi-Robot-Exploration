@@ -25,6 +25,8 @@ def initial_positions(environment, config):
         proposed = np.asarray(positions + [candidate])
         if environment.valid_positions(proposed):
             positions.append(candidate)
+    if len(positions) == config.robot_c:
+        return np.asarray(positions)
     raise ValueError('Could not place robots without overlaps; reduce robot count or radius')
 
 
