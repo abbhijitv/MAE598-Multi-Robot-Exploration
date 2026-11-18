@@ -114,11 +114,16 @@ def run_pair(config, folder, cache=None):
                               'safety_intervention': result['safety_events']}).to_csv(
                                   output / 'safety_events.csv', index=False)
             metrics = run_metrics(result, current, validation)
-            metrics['result_folder'] = str(output.resolve())
+            try:
+                result_folder = str(output.resolve().relative_to(Path(__file__).resolve().parents[1]))
+            except ValueError:
+                result_folder = str(output.resolve())
+
+            metrics['result_folder'] = result_folder
             metrics['reused_run'] = False
             cache[key] = {'metrics': dict(metrics), 'positions': result['positions'][0].copy(),
                           'velocities': result['velocities'][0].copy(),
-                          'folder': str(output.resolve())}
+                          'folder': result_folder}
         (output / 'metrics.json').write_text(json.dumps(metrics, indent=2) + '\n')
         rows.append(metrics)
     configs = [asdict(replace(config, controller=name)) for name in ('baseline', 'discovery')]
