@@ -1,3 +1,5 @@
+from comparison import resolve_result_folder
+from unittest.mock import patch
 # import statements
 import hashlib
 import json
@@ -18,6 +20,31 @@ from validation import validate_result
 
 # experiment tests class
 class ExperimentTests(unittest.TestCase):
+    def test_repository_relative_output_paths(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory).resolve()
+            suite = root / 'Results/experiments'
+            folder = suite / 'robot_counts/robots_5'
+            cache = {}
+
+            with patch('experiments.__file__', str(root / 'Code/experiments.py')):
+                rows = run_pair(Config(duration=0.1), folder, cache)
+                reused = run_pair(Config(duration=0.1), suite / 'random_seeds/seed_598', cache)
+
+            for row, repeated in zip(rows, reused):
+                expected = 'Results/experiments/robot_counts/robots_5/' + row['controller']
+                self.assertEqual(row['result_folder'], expected)
+                self.assertEqual(repeated['result_folder'], expected)
+                saved = json.loads((folder / row['controller'] / 'metrics.json').read_text())
+                self.assertEqual(saved['result_folder'], expected)
+                reference = suite / 'random_seeds/seed_598' / row['controller'] / 'reference.json'
+                self.assertEqual(json.loads(reference.read_text())['canonical_result_folder'], expected)
+                self.assertEqual(resolve_result_folder(suite, expected), root / expected)
+                self.assertEqual(resolve_result_folder(suite, str(root / expected)), root / expected)
+
+            self.assertEqual({value['folder'] for value in cache.values()},
+                             {row['result_folder'] for row in rows})
+
     # function to test the experiment robot counts and random seeds
     def test_robot_counts_and_seeds(self):
         cases = experiment_cases()
