@@ -1,0 +1,19 @@
+{
+  "controller": "baseline",
+  "robot_count": 5,
+  "seed": 123,
+  "initial_coverage_percent": 23.40625,
+  "final_coverage_percent": 24.265625,
+  "travel_distance_m": 0.06802609001600252,
+  "barrier_intervention_steps": 3,
+  "wheel_limit_steps": 0,
+  "swept_guard_steps": 0,
+  "qp_warning_count": 0,
+  "native_errors": {},
+  "minimum_center_separation_m": 0.35857903154696086,
+  "minimum_body_boundary_clearance_m": 0.04048799138576957,
+  "minimum_body_obstacle_clearance_m": null,
+  "robot_collision_intervals": 0,
+  "obstacle_collision_intervals": 0,
+  "boundary_violation": false
+}

@@ -1,0 +1,80 @@
+{
+  "margin_m": 1e-06,
+  "runs": [
+    {
+      "case": "obstacles_n5_seed598",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n3_seed598",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n3_seed598",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed123",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed123",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed2026",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed2026",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed42",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed42",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed598",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed598",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed7",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n5_seed7",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n8_seed598",
+      "controller": "baseline",
+      "all_saved_commands_clear_inflated_guard": true
+    },
+    {
+      "case": "open_n8_seed598",
+      "controller": "discovery",
+      "all_saved_commands_clear_inflated_guard": true
+    }
+  ]
+}

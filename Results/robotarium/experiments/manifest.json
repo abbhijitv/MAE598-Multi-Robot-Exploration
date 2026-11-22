@@ -1,0 +1,76 @@
+{
+  "python": "3.11.7",
+  "robotarium": "2.1.0",
+  "upstream_commit": "2b1b6136a242c164e53081b794ebf10d904cbaae",
+  "installed_source_sha256": "0e7a5babe3f2de95b0f15eb4ad81a92037f30157f14d33d9a15b1df6a819e4a4",
+  "cvxopt": "1.3.2",
+  "numpy": "2.0.2",
+  "platform": "macOS-14.3-arm64-arm-64bit",
+  "duration_s": 99.0,
+  "cases": [
+    [
+      3,
+      598,
+      "open"
+    ],
+    [
+      5,
+      598,
+      "open"
+    ],
+    [
+      8,
+      598,
+      "open"
+    ],
+    [
+      5,
+      42,
+      "open"
+    ],
+    [
+      5,
+      123,
+      "open"
+    ],
+    [
+      5,
+      2026,
+      "open"
+    ],
+    [
+      5,
+      7,
+      "open"
+    ],
+    [
+      5,
+      598,
+      "obstacles"
+    ]
+  ],
+  "paired_initial_states": true,
+  "local_simulation_only": true,
+  "final_obstacle_run": "Completed after adding a 1e-6 m guard margin; first 15 run commands clear that margin unchanged",
+  "source_sha256": {
+    "Code/simulation.py": "21e30e20fbee17bd9e3ae9caa6fb626510b9ca10fb2d5f9002f46d758c051ed7",
+    "Code/test_theory.py": "baef651effd1e1e56d92e3798bfd76ba8d88c88ceaeaab922124c4e0845d201d",
+    "Code/config.py": "235caa62d749003ffc70bb005caebcd81a2dd4eb1c2098b0df045e6ad8de0cf6",
+    "Code/test_robotarium.py": "d8b68317bc1c1e16d4704d08b558f230054af0d441ee83d6063923834e4f500d",
+    "Code/controllers.py": "9f14c3532843e69bce4e5b9b06a66ce6d88bf89fa7b7c4f9d52b999886510124",
+    "Code/robotarium_validation.py": "ed7b04eec21ffff5622832cd58574c952afcd6aaff2e644e87795eab62323fbf",
+    "Code/robotarium_analysis.py": "72813c5d46aae26d893a937b5ac25a272f69a98655b2006012ba0b2ef73582a8",
+    "Code/visualization.py": "468df775dd76f24603992c2030d945d761732e7874be7d88b773286a89d426b9",
+    "Code/test_baseline.py": "a9ccc14c43dc3f9ed1a65e33d06de057231ff405acb05a6bab5596a6d2d702f5",
+    "Code/comparison.py": "1fbe87e196350d1473cdb143afff6d0edf84f26ee6c90372cbb97748298cd48f",
+    "Code/test_discovery.py": "218006f86ab766b56177c92b9ff84861824f3cecab0138fb18144ba02135e0e7",
+    "Code/theoretical_analysis.py": "9da8a3bbebf718bd574e434a6b0e51a65418fb63b5b70c7f944967510c8ee8f9",
+    "Code/experiments.py": "acecc025cceddb32073f25c50dfec43c07f84de6cf947d53cd0d0c6a825bdea0",
+    "Code/environment.py": "16bf34815fbc1e7bf2d0ef0d14f4f4d761e7b1b5e64b52ac5420539690d40baa",
+    "Code/test_experiments.py": "f461f72aa47042d17e29ca18ad2150c954bc55723f4f3eea63fe6ad4587f1e66",
+    "Code/render_videos.py": "5c9eec372df9a1f38ef49771402c764605c25e4d22d2d5ee424472f65ae2c5c0",
+    "Code/main.py": "498851c59102c17ed27d85915beda376ebdc537ea09d0c3233148961c3dc10d8",
+    "Code/robots.py": "90568784ac0335faf8363219f4863db89cc834b7a60397fb7c8ed191c76c365e",
+    "Code/validation.py": "802a65df0b44124cd8d78a0862a78cdaef77eaca2c818ff2249c0a137336a0a2"
+  }
+}
