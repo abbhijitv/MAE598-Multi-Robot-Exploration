@@ -18,6 +18,7 @@ from environment import Environment
 def radial_potential(distance, gain, radius, epsilon):
     if distance >= radius:
         return 0.0
+
     return quad(lambda s: gain * s / (s ** 3 + epsilon), distance, radius,
                 epsabs=1e-12, epsrel=1e-12)[0]
 
@@ -25,25 +26,30 @@ def radial_potential(distance, gain, radius, epsilon):
 # function to calculate the total potential energy
 def potential_energy(positions, environment, config):
     energy = 0.0
+
     for i, position in enumerate(positions):
         for other in positions[i + 1:]:
             energy += radial_potential(np.linalg.norm(position - other), config.robot_gain,
                                        config.robot_interact_r, config.epsilon)
+
         for point in environment.obstacle_points:
             energy += radial_potential(np.linalg.norm(position - point), config.obstacle_gain,
                                        config.obstacle_interact_r, config.epsilon)
+
     return energy
 
 
 # function to calculate the potential hessian
 def potential_hessian(position, points, gain, epsilon):
     hessian = np.zeros((2, 2))
+
     for point in points:
         offset = position - point
         distance = np.linalg.norm(offset)
         denominator = distance ** 3 + epsilon
         hessian += gain * (3 * distance * np.outer(offset, offset) / denominator ** 2
                            - np.eye(2) / denominator)
+
     return hessian
 
 
@@ -65,12 +71,14 @@ def equilibrium_case():
                    'equilibrium_force_norm': float(np.linalg.norm(
                        baseline_forces(equilibrium[None, :], environment, config))),
                    'position_ball_radius': radius,
-                   'cutoff_distance_margin_at_center': float(np.abs(distances - config.obstacle_interact_r).min()),
+                   'cutoff_distance_margin_at_center': float(
+                       np.abs(distances - config.obstacle_interact_r).min()),
                    'hessian_lipschitz_upper_bound_computed': float(bound),
                    'proved_hessian_lower_bound': 0.36, 'proved_hessian_upper_bound': 1.47,
                    'invariant_sublevel_energy': 1.2e-5,
                    'position_boundary_energy_lower_bound': 1.8e-5,
                    'proof_source': 'Research_Notes/Step_15_Theoretical_Analysis.md'}
+
     return config, environment, equilibrium, certificate
 
 
@@ -81,12 +89,15 @@ def fixed_field_trajectory(config, environment, position, velocity):
     # function to calculate velocity and acceleration for the fixed field
     def dynamics(time, state):
         force = baseline_forces(state[:2][None, :], environment, config)[0]
+
         return np.concatenate((state[2:], (force - config.damping * state[2:]) / config.mass))
 
     solution = solve_ivp(dynamics, (0, config.duration), np.concatenate((position, velocity)),
                          method='DOP853', t_eval=times, rtol=1e-11, atol=1e-13, max_step=0.02)
+
     if not solution.success:
         raise RuntimeError(solution.message)
+
     return solution.t, solution.y[:2].T, solution.y[2:].T
 
 
@@ -94,19 +105,25 @@ def fixed_field_trajectory(config, environment, position, velocity):
 def run_validation(output):
     output = Path(output)
     results = Path(__file__).resolve().parents[1] / 'Results'
+
     if results not in output.resolve().parents:
         raise ValueError('Theoretical outputs must be a subfolder of Results')
+
     if output.exists() and any(output.iterdir()):
         raise ValueError('Output is not empty; choose a new folder')
+
     config, environment, equilibrium, certificate = equilibrium_case()
     offset = np.array([0.003, -0.002])
     initial_velocity = np.array([0.001, -0.0005])
     initial_upper = (0.5 * certificate['proved_hessian_upper_bound'] * np.dot(offset, offset)
                      + 0.5 * config.mass * np.dot(initial_velocity, initial_velocity))
+
     if initial_upper >= certificate['invariant_sublevel_energy']:
         raise ValueError('Initial state is outside the proved sublevel bound')
+
     times, positions, velocities = fixed_field_trajectory(
         config, environment, equilibrium + offset, initial_velocity)
+
     # potential energy, kinetic energy and damping loss
     potential = np.array([potential_energy(p[None, :], environment, config) for p in positions])
     potential_at_equilibrium = potential_energy(equilibrium[None, :], environment, config)
@@ -130,11 +147,15 @@ def run_validation(output):
               'fixed_active_set': bool(unchanged),
               'collision_free': all(environment.valid_positions(p[None, :]) for p in positions),
               'energy_nonincrease_with_roundoff_tolerance': bool(np.diff(total).max() < 1e-11),
-              'numerical_energy_balance_within_1e_9': bool(np.abs(total - total[0] + dissipated).max() < 1e-9),
-              'initial_energy_inside_proved_sublevel': bool(relative[0] < certificate['invariant_sublevel_energy']),
+              'numerical_energy_balance_within_1e_9': bool(
+                  np.abs(total - total[0] + dissipated).max() < 1e-9),
+              'initial_energy_inside_proved_sublevel': bool(
+                  relative[0] < certificate['invariant_sublevel_energy']),
               'observed_recovery': bool(distance[-1] < distance[0] * 1e-4 and speed[-1] < 1e-7)}
+
     if not all(checks.values()):
         raise RuntimeError('Theoretical validation failed: ' + str(checks))
+
     output.mkdir(parents=True, exist_ok=True)
     table = pd.DataFrame({'time_s': times, 'x': positions[:, 0], 'y': positions[:, 1],
                           'vx': velocities[:, 0], 'vy': velocities[:, 1],
@@ -162,14 +183,19 @@ def run_validation(output):
                'maximum_acceleration': float(np.linalg.norm(acceleration, axis=1).max()),
                'minimum_robot_body_wall_clearance': float(min(positions.min(), (3 - positions).min())
                                                           - config.robot_r)}
-    for name, data in [('parameters', parameters), ('equilibrium_certificate', certificate), ('summary', summary)]:
+
+    for name, data in [('parameters', parameters),
+                       ('equilibrium_certificate', certificate),
+                       ('summary', summary)]:
         (output / (name + '.json')).write_text(json.dumps(data, indent=2) + '\n')
+
     plots = [('energy_vs_time.png', relative, 'Relative mechanical energy U - U* + T',
               'Fixed conservative ODE: energy dissipation'),
              ('speed_vs_time.png', speed, 'Speed (units/s); mean = maximum for one robot',
               'Fixed conservative ODE: speed decay'),
              ('distance_to_equilibrium.png', distance, 'Distance to (1.5, 1.5) (units)',
               'Recovery near the verified isolated equilibrium')]
+
     for name, values, ylabel, title in plots:
         fig, ax = plt.subplots(figsize=(7, 4))
         ax.plot(times, values, label='Perturbed fixed-field trajectory')
@@ -179,6 +205,7 @@ def run_validation(output):
         fig.tight_layout()
         fig.savefig(output / name, dpi=160)
         plt.close(fig)
+
     fig, ax = plt.subplots(figsize=(5, 5))
     ax.plot(positions[:, 0] - equilibrium[0], positions[:, 1] - equilibrium[1], label='Recovery path')
     ax.scatter(*offset, marker='x', color='orange', label='Perturbed initial position')
@@ -190,6 +217,7 @@ def run_validation(output):
     fig.savefig(output / 'perturbation_recovery.png', dpi=160)
     plt.close(fig)
     print(json.dumps(summary, indent=2))
+
     return summary
 
 

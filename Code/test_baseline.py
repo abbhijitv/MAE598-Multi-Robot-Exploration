@@ -51,6 +51,7 @@ class BaselineTests(unittest.TestCase):
         for distance in (0.0, 1e-15, 1e-8, 0.5):
             f = repulsion(np.array([distance, 0.0]), np.array([[0.0, 0.0]]), 2, 4, 1e-6)
             self.assertTrue(np.isfinite(f).all())
+
         np.testing.assert_array_equal(repulsion(np.zeros(2), np.array([[4.1, 0]]),
                                                2, 4, 1e-6), [0, 0])
         self.assertLess(repulsion(np.zeros(2), np.array([[4.0, 0]]), 2, 4, 1e-6)[0], 0)
@@ -110,10 +111,13 @@ class BaselineTests(unittest.TestCase):
         c = Config(duration=8)
         first = run_simulation(c)
         second = run_simulation(c)
+
         for key in ['positions', 'velocities', 'coverage', 'explored']:
             np.testing.assert_array_equal(first[key], second[key])
+
         for p in first['positions']:
             self.assertTrue(first['environment'].valid_positions(p))
+
         self.assertTrue(np.all((first['coverage'] >= 0) & (first['coverage'] <= 100)))
         self.assertTrue(np.all(np.diff(first['explored'].sum(axis=(1, 2))) >= 0))
         self.assertTrue(np.all(np.linalg.norm(first['velocities'], axis=2) <= c.max_speed + 1e-12))
