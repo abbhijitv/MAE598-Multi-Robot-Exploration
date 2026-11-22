@@ -16,6 +16,7 @@ class TheoryTests(unittest.TestCase):
     # function to test the derivative of the regularized potential
     def test_regularized_potential_derivative(self):
         gain, radius, epsilon = 0.35, 2.0, 1e-6
+
         for distance in (0.05, 0.5, 1.5):
             step = 1e-6
             derivative = (radial_potential(distance + step, gain, radius, epsilon)
@@ -35,6 +36,7 @@ class TheoryTests(unittest.TestCase):
         env = Environment(config)
         positions = np.array([[1.2, 1.3], [1.9, 1.65]])
         force = baseline_forces(positions, env, config)
+
         for i in range(2):
             for axis in range(2):
                 plus, minus = positions.copy(), positions.copy()
@@ -49,6 +51,7 @@ class TheoryTests(unittest.TestCase):
         config, env, equilibrium, certificate = equilibrium_case()
         active = np.array(certificate['active_wall_points'])
         hessian = potential_hessian(equilibrium, active, config.obstacle_gain, config.epsilon)
+
         for axis in range(2):
             offset = np.eye(2)[axis] * 1e-5
             derivative = (baseline_forces((equilibrium + offset)[None, :], env, config)[0]
@@ -69,10 +72,13 @@ class TheoryTests(unittest.TestCase):
     # function to test the neighborhood and energy bounds from the analysis
     def test_proved_neighborhood_and_sublevel_bounds(self):
         config, env, equilibrium, certificate = equilibrium_case()
+
         # check the bounds from the theoretical analysis
         self.assertLess(certificate['hessian_lipschitz_upper_bound_computed'], 43)
         self.assertGreater(certificate['cutoff_distance_margin_at_center'], 0.01)
-        self.assertLess(certificate['invariant_sublevel_energy'], certificate['position_boundary_energy_lower_bound'])
+        self.assertLess(
+            certificate['invariant_sublevel_energy'], certificate['position_boundary_energy_lower_bound'])
+
         for angle in np.linspace(0, 2 * np.pi, 17):
             point = equilibrium + 0.01 * np.array([np.cos(angle), np.sin(angle)])
             self.assertTrue(env.valid_positions(point[None, :]))
@@ -117,12 +123,14 @@ class TheoryTests(unittest.TestCase):
     def test_missing_experiment_path_rejected(self):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaises(FileNotFoundError):
-                resolve_result_folder(Path(directory), '/missing/Results/experiments/robot_counts/robots_5/baseline')
+                resolve_result_folder(
+                    Path(directory), '/missing/Results/experiments/robot_counts/robots_5/baseline')
 
     # function to test that nearby flat field positions are equilibria
     def test_flat_equilibrium_is_not_isolated(self):
         config = Config(robot_c=1, obstacles=[])
         env = Environment(config)
+
         for position in (np.array([[10.0, 10.0]]), np.array([[10.1, 10.1]])):
             np.testing.assert_array_equal(baseline_forces(position, env, config), [[0, 0]])
             self.assertEqual(potential_energy(position, env, config), 0)

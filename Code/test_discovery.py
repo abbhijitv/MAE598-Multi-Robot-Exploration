@@ -46,6 +46,7 @@ class DiscoveryTests(unittest.TestCase):
         explored = np.zeros_like(known)
         update_local_maps(self.position, env, known, explored, c)
         self.assertFalse((known[0] & ~env.free).any())
+
         for step in range(40):
             target = discovery_target(self.position[0], env.x, env.y, known[0], explored[0], c)
             self.assertIsNotNone(target)
@@ -104,6 +105,7 @@ class DiscoveryTests(unittest.TestCase):
         c2 = Config(controller='discovery', robot_c=1, obstacles=[(17, 10, 1)])
         targets = []
         forces = []
+
         for c in (c1, c2):
             env = Environment(c)
             known = np.zeros((1,) + env.free.shape, dtype=bool)
@@ -113,6 +115,7 @@ class DiscoveryTests(unittest.TestCase):
             targets.append(target)
             forces.append(baseline_forces(self.position, env, c)[0]
                           + discovery_force(self.position[0], target, c))
+
         np.testing.assert_array_equal(targets[0], targets[1])
         np.testing.assert_array_equal(forces[0], forces[1])
 
@@ -127,12 +130,16 @@ class DiscoveryTests(unittest.TestCase):
         c = Config(controller='discovery', duration=12)
         first = run_simulation(c)
         second = run_simulation(c)
+
         for key in ['positions', 'velocities', 'coverage', 'explored', 'targets', 'local_explored']:
             np.testing.assert_array_equal(first[key], second[key])
+
         env = first['environment']
+
         for p, next_p in zip(first['positions'][:-1], first['positions'][1:]):
             self.assertTrue(env.valid_positions(p))
             self.assertEqual(env.safe_fraction(p, next_p - p), 1.0)
+
         self.assertTrue(env.valid_positions(first['positions'][-1]))
         self.assertTrue(np.isfinite(first['velocities']).all())
         self.assertTrue(np.all(np.linalg.norm(first['velocities'], axis=2) <= c.max_speed + 1e-12))
@@ -145,12 +152,14 @@ class DiscoveryTests(unittest.TestCase):
     def test_zero_gain_reproduces_baseline(self):
         baseline = run_simulation(Config(duration=5))
         discovery = run_simulation(Config(controller='discovery', discovery_gain=0, duration=5))
+
         for key in ['positions', 'velocities', 'coverage', 'explored']:
             np.testing.assert_array_equal(baseline[key], discovery[key])
 
     # function to test the baseline against saved results
     def test_baseline_matches_preserved_sixty_second_results(self):
         folder = Path(__file__).resolve().parents[1] / 'Results' / 'baseline'
+
         # saved baseline results for the comparison
         saved = np.genfromtxt(folder / 'robot_positions.csv', delimiter=',', names=True)
         coverage = np.genfromtxt(folder / 'coverage.csv', delimiter=',', names=True)
@@ -176,6 +185,7 @@ class DiscoveryTests(unittest.TestCase):
         result = run_simulation(c, positions=[[5, 10]])
         result['positions'][-1, 0] = [15, 10]
         self.assertTrue(result['environment'].valid_positions(result['positions'][-1]))
+
         with self.assertRaisesRegex(RuntimeError, 'swept_obstacle_clearance'):
             validate_result(result, c)
 

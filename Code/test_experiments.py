@@ -1,16 +1,15 @@
-from comparison import resolve_result_folder
-from unittest.mock import patch
 # import statements
 import hashlib
 import json
 import tempfile
 import unittest
-from dataclasses import replace
+from unittest.mock import patch
 from pathlib import Path
 import numpy as np
 import pandas as pd
 from config import Config
 from environment import Environment
+from comparison import resolve_result_folder
 from experiments import RESULT_COLUMNS, experiment_cases, obstacle_layouts, threshold_time
 from experiments import summarize_seeds, run_pair, run_metrics
 from robots import initial_positions
@@ -20,6 +19,7 @@ from validation import validate_result
 
 # experiment tests class
 class ExperimentTests(unittest.TestCase):
+    # function to test repository-relative experiment output paths
     def test_repository_relative_output_paths(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory).resolve()
@@ -60,8 +60,10 @@ class ExperimentTests(unittest.TestCase):
         self.assertEqual(layouts['open'], [])
         self.assertEqual(len(layouts['cluttered']), 8)
         self.assertEqual(layouts['cluttered'][:3], layouts['original'])
+
         for layout in layouts.values():
             Config(obstacles=layout).validate()
+
         for i, (x, y, radius) in enumerate(layouts['cluttered']):
             for x2, y2, radius2 in layouts['cluttered'][i + 1:]:
                 self.assertGreater(np.hypot(x - x2, y - y2), radius + radius2 + 0.4)
@@ -79,11 +81,13 @@ class ExperimentTests(unittest.TestCase):
     # function to test the mean and sample standard deviation
     def test_sample_summary_statistics(self):
         rows = []
+
         for controller, values in [('baseline', [10, 20, 30, 40, 50]),
                                    ('discovery', [50, 60, 70, 80, 90])]:
             for seed, value in enumerate(values):
                 rows.append({'experiment_category': 'random_seeds', 'controller': controller,
                              'seed': seed, 'final_coverage_percent': value, 'total_travel_distance': 12})
+
         rows.append({'experiment_category': 'robot_counts', 'controller': 'baseline',
                      'seed': 99, 'final_coverage_percent': 100, 'total_travel_distance': 12})
         summary = summarize_seeds(pd.DataFrame(rows)).set_index('controller')
@@ -103,13 +107,16 @@ class ExperimentTests(unittest.TestCase):
             discovery = json.loads((root / 'first/discovery/parameters.json').read_text())
             self.assertEqual(baseline['initial_positions'], discovery['initial_positions'])
             self.assertEqual(baseline['initial_velocities'], discovery['initial_velocities'])
+
             for name in Config.__dataclass_fields__:
                 if name != 'controller':
                     self.assertEqual(baseline[name], discovery[name])
+
             for row in rows:
                 row.update(experiment_category='smoke', scenario='test', obstacle_layout='original')
                 self.assertEqual(set(row), set(RESULT_COLUMNS))
                 self.assertEqual(row['threshold_90_status'], 'not reached')
+
             reused = run_pair(config, root / 'second', cache)
             self.assertTrue(all(row['reused_run'] for row in reused))
             self.assertEqual(len(cache), 2)
@@ -141,6 +148,7 @@ class ExperimentTests(unittest.TestCase):
     # function to test saved result hashes and unchanged controller behavior
     def test_existing_controller_files_unchanged(self):
         root = Path(__file__).resolve().parents[1]
+
         # saved file hashes for the comparison
         manifest = root / 'Results/experiments/preservation.json'
         recorded = json.loads(manifest.read_text())
@@ -148,11 +156,14 @@ class ExperimentTests(unittest.TestCase):
                         'sensing_radius': 'sensing_r', 'robot_interaction_radius': 'robot_interact_r',
                         'obstacle_interaction_radius': 'obstacle_interact_r', 'max_acceleration': 'max_acc',
                         'obstacle_point_spacing': 'obstacle_boundary_sampling', 'discovery_radius': 'discovery_r'}
+
         for filename in ('baseline', 'discovery'):
             folder = root / 'Results' / filename
+
             for name in ('parameters.json', 'robot_positions.csv', 'coverage.csv'):
                 name = 'Results/' + filename + '/' + name
                 self.assertEqual(hashlib.sha256((root / name).read_bytes()).hexdigest(), recorded[name])
+
             parameters = json.loads((folder / 'parameters.json').read_text())
             config = Config(controller=filename, **{config_names.get(name, name): value
                             for name, value in parameters.items() if name != 'controller'

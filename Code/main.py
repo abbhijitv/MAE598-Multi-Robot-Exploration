@@ -24,19 +24,24 @@ def main():
     args = parser.parse_args()
     results_root = Path(__file__).resolve().parents[1] / 'Results'
     output = (args.output or results_root / args.controller).resolve()
+
     # check the output folder before saving results
     if results_root not in output.parents:
         parser.error('--output must be a subfolder of Results')
+
     if output.exists() and any(output.iterdir()):
         parser.error('Output folder is not empty; choose a new Results subfolder')
+
     config = Config(duration=args.duration, dt=args.dt, seed=args.seed,
                     robot_c=args.robots, controller=args.controller,
                     discovery_gain=args.discovery_gain, discovery_r=args.discovery_radius)
     result = run_simulation(config)
     validation = validate_result(result, config) if config.controller == 'discovery' else None
     save_results(result, config, output, animation=not args.no_animation)
+
     if validation is not None:
         (output / 'validation.json').write_text(json.dumps(validation, indent=2) + '\n')
+
     print('Final coverage: {:.2f}%'.format(result['coverage'][-1]))
     print('Safety interventions:', result['safety_interventions'])
     print('Saved results to', output)
