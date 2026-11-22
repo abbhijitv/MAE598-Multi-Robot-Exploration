@@ -70,10 +70,10 @@ Each robot knows its pose, workspace bounds and grid coordinates. Occupancy is c
 
 ## Installation and Requirements
 
-Use Python 3.9 and run these commands from the repository root:
+The original simulator supports Python 3.9. Use Python 3.11 for the optional Robotarium validation as well. Run these commands from the repository root:
 
 ```sh
-python3.9 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
@@ -165,6 +165,71 @@ python Code/render_videos.py --output /tmp/mae598_video_check
 
 The script loads the saved historical parameters and initial states, verifies both complete simulations against the saved CSVs, checks paired inputs, and validates the encoded MP4s. It uses 960×960, 20 fps, 1,201 frames, linewidth 1.1 and trail alpha 0.55. To deliberately replace the videos in `Videos/`, run `python Code/render_videos.py --overwrite`. Existing destinations require explicit overwrite permission; output under `Results/` is refused. Encoded bytes may vary with FFmpeg, fonts and platform, while simulation histories and video specifications are checked.
 
+## Robotarium Simulator Validation
+
+An additional validation runs both exploration controllers through the [official Robotarium Python simulator](https://github.com/robotarium/robotarium_python_simulator), version 2.1.0 at commit `2b1b6136a242c164e53081b794ebf10d904cbaae`. These are local unicycle simulations, not experiments on physical Robotarium robots. The original simulator and historical results remain unchanged.
+
+Robotarium provides an independent motion engine, an official velocity mapping and barrier certificates. This work supplies code, paired experiments, plots and videos for Section IV of the MAE 598 report. The guidelines allow up to six additional points for an approved simulator. The Canvas list includes “5a. 2D Robotarium simulator in MATLAB and Python,” as confirmed by the student. The points awarded remain the professor's decision; no hardware-validation claim is made.
+
+### Installation and reproduction
+
+Activate the existing Python 3.11 environment, then install the optional dependencies. CVXOPT has a compatible Apple Silicon wheel, so SuiteSparse compilation is unnecessary on the tested setup. Git is needed to install the pinned upstream revision; FFmpeg with `libx264` is needed for videos.
+
+```sh
+source .venv/bin/activate
+python -m pip install --only-binary=cvxopt -r requirements-robotarium.txt
+python Code/robotarium_validation.py --short --output /tmp/mae598_robotarium_smoke_new
+python Code/robotarium_validation.py --output Results/robotarium_repeat/experiments
+python Code/robotarium_analysis.py --root Results/robotarium_repeat --trials --figures --videos Videos/robotarium_repeat
+python Code/robotarium_validation.py --verify Results/robotarium_repeat/experiments/open_n5_seed598 --verification-output /tmp/mae598_robotarium_replay_new.json
+```
+
+Use new or empty destinations; existing run folders and videos are protected. These commands leave the committed evidence untouched. The tested Anaconda-based environment has a crashing `readline` extension when pip or pytest imports it. If affected, the process-local installation workaround below disables only that optional interactive module. No Python installation or system library was replaced.
+
+```sh
+python - <<'PYTHON'
+import runpy, sys
+sys.modules['readline'] = None
+sys.argv = ['pip', 'install', '--only-binary=cvxopt', '-r', 'requirements-robotarium.txt']
+runpy.run_module('pip', run_name='__main__')
+PYTHON
+```
+
+### Controller adaptation and safety
+
+The 20 × 20 project workspace maps uniformly to a 1.8 × 1.8 m square inside the official arena, at 0.09 m per project unit. Obstacle geometry, grid spacing, sensing and interaction ranges use the same scale. The original body radius would become only 0.018 m, which is too small for Robotarium. The platform configuration therefore uses a conservative 0.095 m body radius and a seeded, more widely spaced initialization. This explicit adjustment prevents a claim of exact dynamic similarity with the historical runs.
+
+The original forces update a damped planar velocity reference. The official mapping converts a safe projected-point velocity to unicycle inputs through a point 0.03 m ahead of each robot. Planar references are capped at 0.08 m/s, wheel commands respect the native 0.2 m/s limit, and the official barrier QP handles robot separation and square boundaries. The original swept-disk geometry further scales actual wheel commands before body, wall or circle contact. Circle safety is checked separately; the inter-robot barrier alone does not handle the circular obstacles. A one-micrometre guard margin addresses numerical contact rounding, not hardware uncertainty. The common guard can pause the whole team, and small QP residuals can cause slight baseline drift. Logged barrier corrections count changes to nominal velocity; they are not collision or near-collision counts.
+
+Coverage and private maps use actual axle positions, ideal pose information and unoccluded sensing. Private exploration decisions remain local, while the barrier QP and common swept-motion guard are centralized safety layers. This is a kinematic adaptation, not an implementation of the original second-order dynamics on physical robots. The original convergence and stability proofs do not transfer automatically.
+
+### Executed comparisons
+
+The main suite uses 99 seconds at the native 0.033 s timestep (3,000 steps), matched initial poses and identical settings within every controller pair. It covers counts 3/5/8, five seeds for the five-robot open layout, and a paired circular-obstacle layout. Separate near-boundary/near-neighbor trials and a one-robot fixed-field trial examine safety and the connection to the theoretical model.
+
+For the five-robot open layout, seed 598:
+
+| Robotarium metric | Baseline | Discovery |
+| --- | --- | --- |
+| Initial coverage | 21.9531% | 21.9531% |
+| Final coverage at 99 s | 23.5781% | 99.2031% |
+| Total team travel | 0.1858 m | 19.4663 m |
+| Minimum swept center separation | 0.2793 m | 0.2759 m |
+
+Across five initialization seeds for the five-robot open layout, final coverage was 23.8969 ± 0.2861% for baseline and 98.9500 ± 0.5167% for discovery (mean ± sample standard deviation). In the circle-obstacle pair, coverage was 25.1335% and 98.0140%. Discovery improved coverage in all eight measured pairs; this is not a universal performance guarantee. Independent checks found no collisions or boundary violations in the 16 main runs. The circle guard reduced commands on 579 discovery steps.
+
+The complete [results table](Results/robotarium/experiments/all_results.csv) and [five-seed statistics](Results/robotarium/experiments/seed_statistics.csv) report all cases. These values describe the platform configuration, not the historical 24.1322% / 99.3158% comparison above. The [verification record](Results/robotarium/verification.json) includes the safety measurements, replay checks and artifact specifications. Wider starts can invoke the existing placement fallback: in the five-robot seed-598 case, two robots start outside the original small cluster and one initially has zero repulsive force. Baseline mainly makes a short deployment adjustment; discovery has an ongoing exploration objective. This is a matched comparison of those behaviors, not evidence of travel efficiency or superiority over other exploration algorithms.
+
+![Robotarium paired coverage over time](Results/robotarium/figures/coverage_vs_time.png)
+
+*Coverage measured from actual Robotarium poses in the paired five-robot open case.*
+
+Figures are in [Results/robotarium/figures](Results/robotarium/figures/). The [baseline video](Videos/robotarium/baseline.mp4) and [discovery video](Videos/robotarium/discovery.mp4) replay saved inputs through the native engine and check every pose against the records. Both are H.264 MP4, 960×640, 10 fps, 301 frames and 30.10 seconds, showing the complete 99-second simulation at approximately 3.3× playback. They use native robot patches, thin trails, coverage and simulation timestamps. These additional videos do not replace the original 960×960 videos.
+
+A separate fixed-field projected-point trial reduces the equilibrium error from 0.00361 to about 9.61e-10 project units over 19.8 seconds. Its reference energy decreases to floating-point precision. This is numerical support for a restricted connection to the continuous model, not a stability proof for the unicycle or discovery controller.
+
+The Robotarium work was implemented and documented with assistance from OpenAI Codex. Executed tests, saved numerical records and independent geometric checks were used to check the generated code and statements. The course report should retain this disclosure and identify the student's own analysis and verification.
+
 ## Testing and Reproducibility
 
 ```sh
@@ -172,9 +237,19 @@ python -m pytest Code/ -q
 python -m unittest discover -s Code -p 'test_*.py' -v
 ```
 
-The latest verification passed all 46 tests with 14 third-party Matplotlib/Pyparsing deprecation warnings. An isolated copy containing the code and seven required fixtures also passed all 46 tests with 14 warnings using the same dependency environment.
+For the Anaconda `readline` issue described above, run the same tests through this process-local workaround:
 
-The suite has 46 tests covering forces, private sensing, target selection, dynamics, collision validation, experiment fairness, historical regression, potential derivatives and the local theoretical example. Historical regression restores saved configurations and checks complete trajectories, velocities and coverage; it does not require controller source bytes to remain identical after comment or configuration-name updates.
+```sh
+PYTHONDONTWRITEBYTECODE=1 MPLCONFIGDIR=/tmp/mae598_robotarium_mpl python - <<'PYTHON'
+import sys, pytest
+sys.modules['readline'] = None
+raise SystemExit(pytest.main(['Code/', '-q', '-p', 'no:cacheprovider']))
+PYTHON
+```
+
+The original 48 tests passed before integration. Verification with Robotarium installed passed all 62 tests with 14 third-party Matplotlib/Pyparsing deprecation warnings. The 14 optional Robotarium tests skip when its dependencies are absent. The original simulator was also run with Robotarium and CVXOPT imports deliberately blocked.
+
+The original suite has 48 tests covering forces, private sensing, target selection, dynamics, collision validation, experiment fairness, historical regression, potential derivatives and the local theoretical example. Historical regression restores saved configurations and checks complete trajectories, velocities and coverage; it does not require controller source bytes to remain identical after comment or configuration-name updates.
 
 Required saved fixtures are `Results/experiments/preservation.json` and `parameters.json`, `coverage.csv`, and `robot_positions.csv` under each of `Results/baseline/` and `Results/discovery/`. The preservation manifest includes older local file inventory entries, but the test checks only these six saved baseline/discovery files. The test loads this repository-relative manifest directly.
 
@@ -195,6 +270,7 @@ MAE598-Multi-Robot-Exploration/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
+├── requirements-robotarium.txt
 ├── Code/
 │   ├── config.py
 │   ├── environment.py
@@ -203,6 +279,9 @@ MAE598-Multi-Robot-Exploration/
 │   ├── simulation.py
 │   ├── main.py
 │   ├── render_videos.py
+│   ├── robotarium_validation.py
+│   ├── robotarium_analysis.py
+│   ├── test_robotarium.py
 │   ├── visualization.py
 │   ├── validation.py
 │   ├── experiments.py
@@ -216,10 +295,12 @@ MAE598-Multi-Robot-Exploration/
 │   ├── baseline/
 │   ├── discovery/
 │   ├── experiments/
-│   └── theoretical_validation/
+│   ├── theoretical_validation/
+│   └── robotarium/
 └── Videos/
     ├── baseline.mp4
-    └── discovery.mp4
+    ├── discovery.mp4
+    └── robotarium/
 ```
 
 Selected results retain presentation figures, configurations, summaries and the numerical artifacts needed by tests and historical replay. Repeated experiment plots, GIF copies and local working materials are excluded from the public repository.
@@ -235,5 +316,6 @@ The global synchronous collision safeguard may stop unrelated robots or deadlock
 1. A. Howard, M. J. Matarić and G. S. Sukhatme, “Mobile Sensor Network Deployment using Potential Fields: A Distributed, Scalable Solution to the Area Coverage Problem,” *Distributed Autonomous Robotic Systems 5*, 2002, pp. 299–308.
 2. T.-M. Liu and D. M. Lyons, “Leveraging area bounds information for autonomous decentralized multi-robot exploration,” *Robotics and Autonomous Systems*, vol. 74, 2015, pp. 66–78.
 3. M. Schwager, D. Rus and J.-J. Slotine, “Unifying geometric, probabilistic, and potential field approaches to multi-robot deployment,” *The International Journal of Robotics Research*, vol. 30, no. 3, 2011, pp. 371–383. DOI: 10.1177/0278364910383444.
+4. S. Wilson et al., “The Robotarium: Globally Impactful Opportunities, Challenges, and Lessons Learned in Remote-Access, Distributed Control of Multirobot Systems,” *IEEE Control Systems Magazine*, vol. 40, no. 1, 2020, pp. 26–44. [DOI: 10.1109/MCS.2019.2949973](https://doi.org/10.1109/MCS.2019.2949973). The [official website](https://www.robotarium.gatech.edu/) provides citation guidance; the pinned [Python source](https://github.com/robotarium/robotarium_python_simulator/tree/2b1b6136a242c164e53081b794ebf10d904cbaae) supplies the engine, mapping and barrier utilities.
 
 These sources motivate deployment, decentralized discovery and potential-field analysis. The normalized nearest-cell controller and the concrete equilibrium estimates are project-specific choices and derivations.

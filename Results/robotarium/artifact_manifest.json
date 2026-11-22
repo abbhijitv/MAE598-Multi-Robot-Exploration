@@ -1,0 +1,645 @@
+{
+  "files": {
+    "Results/robotarium/controller_replay.json": {
+      "bytes": 642,
+      "sha256": "3ef12d415a626ca364e716a20c61137cb106c49c46a6ee036386147b1fc89b82"
+    },
+    "Results/robotarium/experiments/all_results.csv": {
+      "bytes": 2823,
+      "sha256": "c2ebf07c52b3cebceea2fe7d2751e03eceb96041aed76df46227e143c9f22445"
+    },
+    "Results/robotarium/experiments/manifest.json": {
+      "bytes": 2751,
+      "sha256": "382ee71100c56507d7d719d85d26b147342550ce0cda5ec61698e02c8c55290c"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/coverage.csv": {
+      "bytes": 85234,
+      "sha256": "04931f9204ed3f3f4aff435f3b45f7dca77e1b52225d38daabb217377d1001db"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/inputs.csv": {
+      "bytes": 2230978,
+      "sha256": "6f2bdf9a918f5c9fb6d3eafe7fb94f72c08b6c9948ac34a03af2a60250e9d036"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/maps.npz": {
+      "bytes": 221274,
+      "sha256": "b47683d2be3fc1b258bd52bdd9d165837765dd09113916c1130fe5eccbfb3e5e"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/parameters.json": {
+      "bytes": 1501,
+      "sha256": "bc06a3cbcb1d1462690c2cf002ad6ed1f40653a6a9263638a892bb59f581ca85"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "857f4cd282ba661b8dbecce6f0f2c46cdb260ec34eea08a5ffb1451622586bad"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/states.csv": {
+      "bytes": 1074176,
+      "sha256": "858945f57f93b37fbb587424956242600de6273fad4adadb6e0f201ef73039c9"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/baseline/summary.json": {
+      "bytes": 618,
+      "sha256": "dc57b641613e1aa366c6be9554de69879a9949fde3a16a7f2c766e56a924d1f9"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/coverage.csv": {
+      "bytes": 85299,
+      "sha256": "61cfca9887788730a18952ffada375dbb724d6c264b3c33ac41c473494e1fae3"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/inputs.csv": {
+      "bytes": 1983865,
+      "sha256": "401097bc528119d08f522a8e03c7c03df19e8b58395ef35e757065a38e9ea09d"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/maps.npz": {
+      "bytes": 291157,
+      "sha256": "7fa9273496951dc5e686d9a506e7a0bff356a96f7eaadb0bb29bf6d49874d4e6"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/parameters.json": {
+      "bytes": 1535,
+      "sha256": "a9c54ee35f112b7fc0aa6042cefe02edd4f9a1caff465bd798d67685a5268201"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "8e7ed1560056930caddb5c25108494857342d96acd779afbe2fd1c3cd301ce23"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/states.csv": {
+      "bytes": 1070708,
+      "sha256": "9ee84cd3c83152f7b55b5b6dc73355817b76c2b4a07cc568f87c32e954ffb652"
+    },
+    "Results/robotarium/experiments/obstacles_n5_seed598/discovery/summary.json": {
+      "bytes": 623,
+      "sha256": "c63907175ae226bc9dedc3ead70c23b9dbbbdea08a42a36bee5015354afcbc33"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/coverage.csv": {
+      "bytes": 55436,
+      "sha256": "a313c3b30c77b08bab4b18d23281b441ed3a19530774452ec104f0ecb9fb5800"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/inputs.csv": {
+      "bytes": 1337111,
+      "sha256": "7e11901d53f5967ae9831825978e3874ea18bf5c528578bc951a717960bc5dc0"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/maps.npz": {
+      "bytes": 180871,
+      "sha256": "519f70722164d6d2370de51144d5259133247baf814775f30f775b6c073a08da"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/parameters.json": {
+      "bytes": 1171,
+      "sha256": "4d99175e92947ad35c2de84a52ceac1249006847f0e5d94cb01d38fd938c20ea"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "93544bcedcead63e33f9fc1df6a61294495000bfff9d19802eca4cb1cf544dee"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/states.csv": {
+      "bytes": 643188,
+      "sha256": "19929f6c293dce120880bd2ae2c68168764833446467f9b93b98469667d4ec86"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/baseline/summary.json": {
+      "bytes": 585,
+      "sha256": "af43e1d634463ad18ce2bb74aa4a4cb81abc290fdc3775ddfc29f4f6914dd523"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/coverage.csv": {
+      "bytes": 58368,
+      "sha256": "e8d4bd9b2e80878f3aabd056e97fa403e3447c8214ea8d30caca58be5c18e57d"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/inputs.csv": {
+      "bytes": 1240539,
+      "sha256": "fcfec5b7efcb79a124cb0ec0e57848b7a005290acfe05a635c7d5e0d813e85b7"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/maps.npz": {
+      "bytes": 247427,
+      "sha256": "16ce40ede02d27e45608549c1ec2dfcc228e00a08ebdcb77088064a7dd5235df"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/parameters.json": {
+      "bytes": 1172,
+      "sha256": "e9812b432fcc5fba9fdcf8c8168901e6cfcf82310c9ad6bebcddb06e9dc2b86f"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "25184e1b69503ee9ed853ef32563e945a9ba555d0d41b5644c1718107d3587c9"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/states.csv": {
+      "bytes": 636170,
+      "sha256": "d85a9199c3e46296b3cb608542b2c9140259fa3e01427736560e85038a9b457e"
+    },
+    "Results/robotarium/experiments/open_n3_seed598/discovery/summary.json": {
+      "bytes": 586,
+      "sha256": "90295d3dad990889bc5ac0b3e80dfb95829a5bf7a1ab5feec51f23dd0a2ad88c"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/coverage.csv": {
+      "bytes": 60990,
+      "sha256": "8c51b91579cf84c96b18c6e74ce1dddbf2a3ac1b3b0481a15193b7d1d268f8a4"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/inputs.csv": {
+      "bytes": 2226208,
+      "sha256": "ba2d5f99086b4c078bc85af3f8310611b39a22c1ffbe642f69cb25a60ef13e85"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/maps.npz": {
+      "bytes": 257871,
+      "sha256": "d4e8e93baf473aa6cb3e7c941d210441938ee89e6d4d3e4d3160891fdaafcf5a"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/parameters.json": {
+      "bytes": 1329,
+      "sha256": "bfb2dfb7ffdfde279895770c2d2d9fa110ed05fde72bce1ded89da5b0c22ffaa"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "802b5209f4aaeddbe9ebcd35d56adbf02195f443c89f733938e79f58eca9f259"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/states.csv": {
+      "bytes": 1060507,
+      "sha256": "a576ae7dee99c8b919561dc48e796f648ea63a5fee0798c02ef1019595ef5570"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/baseline/summary.json": {
+      "bytes": 585,
+      "sha256": "d10528b27a85a6e0f25d75a36c9bfcded9e50a98d5c82b92941a3482c8450743"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/coverage.csv": {
+      "bytes": 58723,
+      "sha256": "28089cb49bb6a388989629a998dc4993d60b21d6fbb5366912d9c3eac699ab33"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/inputs.csv": {
+      "bytes": 2065862,
+      "sha256": "493861340c2206f2c633fdc5a90935295a3100bd6aa0d5917585a28fd7d378ef"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/maps.npz": {
+      "bytes": 332822,
+      "sha256": "f31113c9254f868e969f99ec2b29741f6a466e48ef1815ae4fcfd2d73d534310"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/parameters.json": {
+      "bytes": 1330,
+      "sha256": "51db612bc2553bfb2f9f277e73e11d97d0101cdbd9cb7066ab3693b95b0d2e1b"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "49ffad8376d379f5ca1a6aa03dfc4ea609dd8656032876e6fa8081628e41e5d4"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/states.csv": {
+      "bytes": 1069534,
+      "sha256": "fe677e325d27cecf1da95b7fd1b418138c0d576d9fa0c78caefafdc4ab1bd1d4"
+    },
+    "Results/robotarium/experiments/open_n5_seed123/discovery/summary.json": {
+      "bytes": 586,
+      "sha256": "91b40d5dea63badd417e22a79992dcbd8f66b5522f3f90ed749f7ec9375f3e96"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/coverage.csv": {
+      "bytes": 60876,
+      "sha256": "033eab05d641fcd16185f292631814270b4b1b1a62bc8fe6ae3dfbe867881f14"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/inputs.csv": {
+      "bytes": 2228416,
+      "sha256": "557117e574ac4341771ce2cf83733b6f049c04290a8bdcf5e95acdb58a2b17ae"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/maps.npz": {
+      "bytes": 291037,
+      "sha256": "36fc72e295d8c850622559b453aaf7bfe324b3d88b6ff6d76fdb2a40a3b38fa4"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/parameters.json": {
+      "bytes": 1337,
+      "sha256": "5d8a73eb4649ac4dd134c69d831eb276aea679f3814ffca7ff3075381b4f9296"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "8d9052c23462f3b719a47d76cf2d279b4929327c9172e93eabafc9f12298935a"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/states.csv": {
+      "bytes": 1075334,
+      "sha256": "4645c40db3727df9ea06923fb53241af7da144515d5d1b1676ebe1e00a95ad7c"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/baseline/summary.json": {
+      "bytes": 589,
+      "sha256": "0930faf4391d6c163c85c50d852a0311cfe14a9fa127540b67429fae62840298"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/coverage.csv": {
+      "bytes": 57930,
+      "sha256": "039659d43beeb56c7407fd78cee39666c8345878b38cd97b875964a111bb80a6"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/inputs.csv": {
+      "bytes": 2065541,
+      "sha256": "7f40a6ea706c6b15c29f6ca79a72c70cfbcd40f99392d6644330abeb9682e26e"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/maps.npz": {
+      "bytes": 279847,
+      "sha256": "c2b09f42fee4cc98d41272b9870ed84c76bd46b2c517fa41ef11b071385b59fd"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/parameters.json": {
+      "bytes": 1338,
+      "sha256": "2b8bcdc697fc02b331dace80c6a3b18059492ad7802de8212b1fe4ce840ae141"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "2e0f58a3fd26c0e6b5fea44a725c499a02e7cb430ce11dbfb54667175cf3ca17"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/states.csv": {
+      "bytes": 1068366,
+      "sha256": "eb0231bbae5c276c9c27108a91ae5ba2f68756feb98d48547e34af57ad00eeeb"
+    },
+    "Results/robotarium/experiments/open_n5_seed2026/discovery/summary.json": {
+      "bytes": 586,
+      "sha256": "8697a502f9bdf2a9c7a35395216e605df34ab4aae602592ab94113d7974c90e7"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/coverage.csv": {
+      "bytes": 52527,
+      "sha256": "ac6c980f3dd39a0b956ecc3ff386c0b19db152735e07778c66e2e307898b9797"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/inputs.csv": {
+      "bytes": 2213249,
+      "sha256": "85ecb08f9b24be7f444fd70edbb77301da0e99188aeab43d754c381b74926e2b"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/maps.npz": {
+      "bytes": 249150,
+      "sha256": "d017f73f7abd6ca109355e3a3f7bb2f49d986d87ccdd08a3bdbc38b1307a87da"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/parameters.json": {
+      "bytes": 1333,
+      "sha256": "d30447bee808052745438014e887a56ca9e2b90d9c03562f340f252a17b71efd"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "7602a77fb8b5148b75d811c28eea8205447cda4dba37cdb2f1c174b646651997"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/states.csv": {
+      "bytes": 1076288,
+      "sha256": "0490659bf4647d673445f134aeb254690d7323f8729510e6e6ece23fee136a5e"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/baseline/summary.json": {
+      "bytes": 579,
+      "sha256": "bd449dd7678da954ad9f7c2e1e32d644126bae2c483bc18cbac69157fedb6c13"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/coverage.csv": {
+      "bytes": 58515,
+      "sha256": "332057d3bb3f214c400e8f8b57f610967994132eef938731682abc1efb56a0a8"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/inputs.csv": {
+      "bytes": 2076110,
+      "sha256": "c9ef53a1739114958f31eef0b0a5945edc3354f43de8bd5934c7f212ca395cb2"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/maps.npz": {
+      "bytes": 228019,
+      "sha256": "a9d511b43182c9e9d2823b572b221df063f8ae76f683335de614ad1bd4d1f953"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/parameters.json": {
+      "bytes": 1334,
+      "sha256": "c00ad9fc483359ab6739ad86e7018a8edd4ba51b8fe2299336dde633ef14ad73"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "ed1c25d6ac7814d992ec49a8ca6d77381300f8ca6620ddd88e3c3b0d7962fc0b"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/states.csv": {
+      "bytes": 1071138,
+      "sha256": "ff8ee42714f6becc5e02a92f88e69ead9121ad2f347b4421058b6517ea544057"
+    },
+    "Results/robotarium/experiments/open_n5_seed42/discovery/summary.json": {
+      "bytes": 586,
+      "sha256": "3d57696ae58d66b830be7a4a266baafa6d61f9c7a0b7e01e87022939d761217b"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/coverage.csv": {
+      "bytes": 60818,
+      "sha256": "c35eb2200b53ade56cc14f10f938c23f669c252e358fe9dfd7742c5f5cd9e12c"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/inputs.csv": {
+      "bytes": 2230978,
+      "sha256": "6f2bdf9a918f5c9fb6d3eafe7fb94f72c08b6c9948ac34a03af2a60250e9d036"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/maps.npz": {
+      "bytes": 243249,
+      "sha256": "9d473b2f9ded8f531a7ca041fcf61ecc4fb349e4cb2869fdda6e54c27944db41"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/parameters.json": {
+      "bytes": 1329,
+      "sha256": "8882528fd5f8f7dfb3e81ec56c936340b4a522a43b3f7ad188e5e6bb536ea835"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "857f4cd282ba661b8dbecce6f0f2c46cdb260ec34eea08a5ffb1451622586bad"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/states.csv": {
+      "bytes": 1074176,
+      "sha256": "858945f57f93b37fbb587424956242600de6273fad4adadb6e0f201ef73039c9"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/baseline/summary.json": {
+      "bytes": 588,
+      "sha256": "61937e52cee9bcbdff71b48df112bb0e0eb6463798ad317b4897ef8b84dbe10a"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/coverage.csv": {
+      "bytes": 58364,
+      "sha256": "cfd211909ee986fc79701056f991c4b7d1e1393463ea1bcfc875f7d50766f4cb"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/inputs.csv": {
+      "bytes": 2067744,
+      "sha256": "c9ccd1995d4d8d36fcc8a85015c314c92290be711874fe49b876078c262e8866"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/maps.npz": {
+      "bytes": 269044,
+      "sha256": "c0fa2272d9c2e0ee4ab140d63f620e9f42f6a4e9a6a8d6ee27d92136bb4deda6"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/parameters.json": {
+      "bytes": 1330,
+      "sha256": "1402977afcbbcd2f474d82ae530ce4ba15fd2905e92d568864aadcdb5855948a"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "8f16c7778832fbf100baae1a2a4b4f2f0877440d77f86765fd541a40c78a0384"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/states.csv": {
+      "bytes": 1070058,
+      "sha256": "757925e7d729a45513d9fcfc6117b16eeccf1fef98adbfb07cae85c305f3d813"
+    },
+    "Results/robotarium/experiments/open_n5_seed598/discovery/summary.json": {
+      "bytes": 589,
+      "sha256": "f1a27a7ed67e8e2950c0ec4bb76f9706b588f7ec8a11d38a0f79f3d8eae059b5"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/coverage.csv": {
+      "bytes": 58102,
+      "sha256": "0f55b1ed1ec475f35f926afa9f84303b28201ba80bb8ccd7b8d6e4d2b1f6d186"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/inputs.csv": {
+      "bytes": 2254107,
+      "sha256": "70242a4b9d72b611e1a07ee0ac95daedf74f8aae0fb864728b89e42858e1f846"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/maps.npz": {
+      "bytes": 348824,
+      "sha256": "4d82c2629e0935283fdcc9436133ba562615569960a9a720734adb7c1e72f8b6"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/parameters.json": {
+      "bytes": 1339,
+      "sha256": "eb8da40518252e282b11a9fb5046658f46b8f75d659f8d66fb486e1cb0306bc3"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "67be0f7870a549782ed41d6711162f0decf92abf261d20ec5948edd8d0127a06"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/states.csv": {
+      "bytes": 1087589,
+      "sha256": "dbe0aa28a78ba6bf37be19646c181d5d7e950911d163791c99162b0f812de587"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/baseline/summary.json": {
+      "bytes": 580,
+      "sha256": "b2a88a666c0e80cc64f63ab6982a2dc04ccf0b11de0874d43d14d9a6d9f2da3c"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/coverage.csv": {
+      "bytes": 57928,
+      "sha256": "c55b3287c969d4f020747aa3404d1653698413a03980e98e5880c0e34d854274"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/inputs.csv": {
+      "bytes": 2064038,
+      "sha256": "519d476733b390b07c003634a33cb82b4438ce5c11941ac69e8c74910f32f7ba"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/maps.npz": {
+      "bytes": 257811,
+      "sha256": "f6501d6279f71191f1eb2cfabb3fdf7bd9bacb9cb4561d9393f9f1682d3b0c6b"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/parameters.json": {
+      "bytes": 1340,
+      "sha256": "2183a64217df4eb79196497f258df903c5b1dcb2b0c1ab621c36b231472956b2"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "99eff825e982962f741fd4479ae1feb5541f122f84b5d178bc0529ac7e7af342"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/states.csv": {
+      "bytes": 1073050,
+      "sha256": "96341c451fb29ba5271910d5bba4e0e284d056bef2ac22785772cf9c032aef97"
+    },
+    "Results/robotarium/experiments/open_n5_seed7/discovery/summary.json": {
+      "bytes": 584,
+      "sha256": "c16c4a94273ae834e469ad7e155e6d955ac41e90b40019bef9d1ffef8a34b83a"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/coverage.csv": {
+      "bytes": 60795,
+      "sha256": "963ee53357a6a1a7d37ee1ce4c8b2a4927627f873f4b1b82dedd8c9223080794"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/inputs.csv": {
+      "bytes": 3601587,
+      "sha256": "6c793b183fd438b618bf820c4c4d9753424a4e126d5e59bbc5b4303cfda53cdc"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/maps.npz": {
+      "bytes": 322771,
+      "sha256": "94c987d74022121414fcf7e920493cd051177d888e0c94ca2b52a8339089b91a"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/parameters.json": {
+      "bytes": 1567,
+      "sha256": "83c63623ae11952756ae018466ba3b67861486ec8f1e2fe8acf07509b870ba05"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/safety.csv": {
+      "bytes": 24044,
+      "sha256": "492e51c863d139959ea1f776995271edd3287c162a6fa295e544972d10f48936"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/states.csv": {
+      "bytes": 1706093,
+      "sha256": "26d981723a38e573a2643ad3508bc3051e0eca060492aa30aa125bd2e95982e1"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/baseline/summary.json": {
+      "bytes": 586,
+      "sha256": "5a5c029c01bc330a55bda317b4b007e0ebeb2a262d946687436c93cef3382589"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/coverage.csv": {
+      "bytes": 58447,
+      "sha256": "9e19b3d68e34040f86a9666993caf833ae5ad2ce17367adc6564475169efa8f4"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/inputs.csv": {
+      "bytes": 3343397,
+      "sha256": "e84751060ab9a13ce73d0d03835b72dc764f57bc718a5d033497c2fe84ec4f51"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/maps.npz": {
+      "bytes": 228377,
+      "sha256": "0eebd2fd6aa127c2a25c5b33676b76cc738b33e0062164409f6a9f313e4e40e4"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/parameters.json": {
+      "bytes": 1568,
+      "sha256": "c217c238c274bfe1b92e67bd41bf43d9f5baa66abd5300c2f470dbb6d822ff62"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/safety.csv": {
+      "bytes": 24044,
+      "sha256": "cd9c6e1d429ed3c09cf9e1230679849428e9948d413cb2a7686a1645a811be04"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/states.csv": {
+      "bytes": 1710336,
+      "sha256": "19f6efbb4048714355f4b1c02da4ab9beb3bc9ce4cc4198f32b9e377bb007842"
+    },
+    "Results/robotarium/experiments/open_n8_seed598/discovery/summary.json": {
+      "bytes": 586,
+      "sha256": "3b3c6a94843474bd394ac0e4b66692ffce53b3127e6f40f202897b3ed330e676"
+    },
+    "Results/robotarium/experiments/seed_statistics.csv": {
+      "bytes": 171,
+      "sha256": "bd3b25f849c20b64ed584b8200e552fdae273a27c2eaf5985d1b71dc2aa5aa4f"
+    },
+    "Results/robotarium/figures/baseline_trajectories.png": {
+      "bytes": 42709,
+      "sha256": "61f3712d76dc6b9ad57de61d2750427fee93cd5b5059239434f8b94ff5d0a4f7"
+    },
+    "Results/robotarium/figures/baseline_vs_discovery.png": {
+      "bytes": 30029,
+      "sha256": "9f036f1e1dcb10d35ce37a74d8d42b98639176678d4d4528dfc3277a11f8e594"
+    },
+    "Results/robotarium/figures/coverage_vs_time.png": {
+      "bytes": 53764,
+      "sha256": "46edb955b539e6e4e03c57ab537ee8ff51604ccf9e06ef85b7c04cde58a2fc0e"
+    },
+    "Results/robotarium/figures/discovery_trajectories.png": {
+      "bytes": 126642,
+      "sha256": "73c10bde783a3f9e36031b963fbc1f8092fa6cf11e1cb17c997bfa2d9d0560bd"
+    },
+    "Results/robotarium/figures/fixed_field_validation.png": {
+      "bytes": 107166,
+      "sha256": "e4f1090a0eb4907847a7cd8d5d6b7b904ce1e44092f173bfc9dca831942abcf8"
+    },
+    "Results/robotarium/figures/obstacle_comparison.png": {
+      "bytes": 33876,
+      "sha256": "ce5bcf7a94d3551d56a84a7cbf009aea32a235a47203ca31bef117a07b36860f"
+    },
+    "Results/robotarium/figures/obstacle_trajectories.png": {
+      "bytes": 153095,
+      "sha256": "1a0ca9efbdc2a188c62dfec9ddda359c8bc2c71256b8e556577d6308e4783793"
+    },
+    "Results/robotarium/figures/random_seeds.png": {
+      "bytes": 32711,
+      "sha256": "22933849e661eee2129057b2b81dc6728babb715ce8185ed813fffaf9a0a9415"
+    },
+    "Results/robotarium/figures/robot_counts.png": {
+      "bytes": 36315,
+      "sha256": "6be156970c9d9763ed94ceffc9bf1d425a1a80f956cf6da383271a41b45fd895"
+    },
+    "Results/robotarium/figures/safety_stress.png": {
+      "bytes": 93486,
+      "sha256": "aee83bfd18ba5a93f388240aadbd1c85c6c9b421bb7b104d907cf732107e181a"
+    },
+    "Results/robotarium/figures/safety_vs_time.png": {
+      "bytes": 135178,
+      "sha256": "7be7c4c04e594445695ec7b29616911b45e7264585ed822a27ee3f515d48bdcb"
+    },
+    "Results/robotarium/figures/seed_statistics.png": {
+      "bytes": 31650,
+      "sha256": "8becf1cc8229feaaad421647f46d05355d036901fb712100a056e692a719f654"
+    },
+    "Results/robotarium/final_controller_replay.json": {
+      "bytes": 642,
+      "sha256": "3ef12d415a626ca364e716a20c61137cb106c49c46a6ee036386147b1fc89b82"
+    },
+    "Results/robotarium/fixed_field/coverage.csv": {
+      "bytes": 9679,
+      "sha256": "b015201d65bcfd3699f64bc6917839a90322a54af84c1ff0b03fca6142505f45"
+    },
+    "Results/robotarium/fixed_field/energy.csv": {
+      "bytes": 46356,
+      "sha256": "e52176fc2f6c134da1007757a97aeb2a6c939b24ec60307b7bb76d5afbafeb8b"
+    },
+    "Results/robotarium/fixed_field/energy_summary.json": {
+      "bytes": 577,
+      "sha256": "8367ff896418a628eaea8760c2217eed2617e7652b24ff54a8f233a6f10b3581"
+    },
+    "Results/robotarium/fixed_field/inputs.csv": {
+      "bytes": 89576,
+      "sha256": "64da99e44820fcf924feedf2c536395ddfdd3396e839f058c87b109dfcbc8922"
+    },
+    "Results/robotarium/fixed_field/maps.npz": {
+      "bytes": 980,
+      "sha256": "c56f58336f22b68634890fcd57e4df7041d4c613e947c5e915692d956c50f5ff"
+    },
+    "Results/robotarium/fixed_field/parameters.json": {
+      "bytes": 959,
+      "sha256": "65631e87688ac2599ecddd30be1d754c789cd15db3018a740216272ed8adcd83"
+    },
+    "Results/robotarium/fixed_field/safety.csv": {
+      "bytes": 4844,
+      "sha256": "326f53ff4744c5f482be254de3d08d0056329a4603926457ffb20e1ec6571456"
+    },
+    "Results/robotarium/fixed_field/states.csv": {
+      "bytes": 46178,
+      "sha256": "5d907be4be43767d542a8ab2236ff4d723f0fd886c6175cfafcc38614b2001fd"
+    },
+    "Results/robotarium/fixed_field/summary.json": {
+      "bytes": 564,
+      "sha256": "c555c8f3c2475fe7c09252b2300364887e4fa55a18f93e5a1dea81bbf86ab0e4"
+    },
+    "Results/robotarium/guard_compatibility.json": {
+      "bytes": 2028,
+      "sha256": "eefa1d5a5d61f3c683e72828210a65ecc42d998a0a1ff0c84175b3ddf50ab1d6"
+    },
+    "Results/robotarium/guard_margin_check.json": {
+      "bytes": 647,
+      "sha256": "a1eceb22f62d9b2d5f98d4af0a05e579b65f68c6cccc3612a987c4aea25deb02"
+    },
+    "Results/robotarium/installation.json": {
+      "bytes": 1335,
+      "sha256": "1467f73b2b5664fb45753fab11a44fefbeacddffe3bf416dce901b5b2eb6e300"
+    },
+    "Results/robotarium/obstacle_controller_replay.json": {
+      "bytes": 622,
+      "sha256": "e18b2a79c58b3079f9930c57807cba1ba1628e202f89117177b602468678f262"
+    },
+    "Results/robotarium/official_example.json": {
+      "bytes": 1160,
+      "sha256": "693e733e0ce4a700e2362a29051cd9cd2d431a58887ddeaeb85d38b3905bca11"
+    },
+    "Results/robotarium/safety_stress/baseline/coverage.csv": {
+      "bytes": 5351,
+      "sha256": "5ca577bd33878e30b7ebdf7e5f2d03d457bae97a240ca69c8a50d45e5727645c"
+    },
+    "Results/robotarium/safety_stress/baseline/inputs.csv": {
+      "bytes": 87041,
+      "sha256": "f407e444d504b7ccb92c39bd667c6c31ccaaa0b88e152fd6339ce97e6f18fe3a"
+    },
+    "Results/robotarium/safety_stress/baseline/maps.npz": {
+      "bytes": 10766,
+      "sha256": "73b2db9c8222824af51350da708ab19a6b20f1d81a7479f78a08251007d26d0b"
+    },
+    "Results/robotarium/safety_stress/baseline/parameters.json": {
+      "bytes": 999,
+      "sha256": "da836c97acc066a12187ae5a44db88b6bd3186404cd29373869913dca56d3264"
+    },
+    "Results/robotarium/safety_stress/baseline/safety.csv": {
+      "bytes": 2444,
+      "sha256": "9276a86088b9311ab9355e6e3bb4cb4396a1c5a07f7c683ee304f413bbd91957"
+    },
+    "Results/robotarium/safety_stress/baseline/states.csv": {
+      "bytes": 42626,
+      "sha256": "26b5e4b8f90a2788c7061a884d36765052198b2bab9e766fede90357157fdbf8"
+    },
+    "Results/robotarium/safety_stress/baseline/summary.json": {
+      "bytes": 588,
+      "sha256": "e18b1e14936e9f88fc58aec454f4effef6cdb98a503cb9ce298d740335538f85"
+    },
+    "Results/robotarium/safety_stress/discovery/coverage.csv": {
+      "bytes": 5488,
+      "sha256": "9d3a5a93a719349f4fb0a20e4210d5541e448bdc42d05de5b1bc023984beb03e"
+    },
+    "Results/robotarium/safety_stress/discovery/inputs.csv": {
+      "bytes": 82515,
+      "sha256": "cf8ccb99a04d9c6ea965c119041abb89decb5f2b54a2134f9e38facd88deef91"
+    },
+    "Results/robotarium/safety_stress/discovery/maps.npz": {
+      "bytes": 14892,
+      "sha256": "dc5f602561df709dab28a6f46eae2231cd2c1fe14facbc82461d495145b8f4c7"
+    },
+    "Results/robotarium/safety_stress/discovery/parameters.json": {
+      "bytes": 1000,
+      "sha256": "4cab521750256a07d1814d54d418bed455f97a36c4a93101e02e5e3f7417887c"
+    },
+    "Results/robotarium/safety_stress/discovery/safety.csv": {
+      "bytes": 2444,
+      "sha256": "49db67e29dda8b1e4f41a6941be01650342a4b1f082047bfd9a5f8ab630c15fc"
+    },
+    "Results/robotarium/safety_stress/discovery/states.csv": {
+      "bytes": 41392,
+      "sha256": "da00b38ce5ad1a094e68b3db66a6656e8cc490bc3e8b0cb0191e895a4f34c365"
+    },
+    "Results/robotarium/safety_stress/discovery/summary.json": {
+      "bytes": 588,
+      "sha256": "b5459e1b3f68c533ffaffdae2fd93ee29e67dd13d23a5ad057fd49c478edb433"
+    },
+    "Results/robotarium/verification.json": {
+      "bytes": 9064,
+      "sha256": "62631dfb6cf6e5d05577a3a34b15c6c954a2f8ad7c37b2fad31c22d0a235c3a5"
+    },
+    "Videos/robotarium/baseline.mp4": {
+      "bytes": 168187,
+      "sha256": "52353c867ff88e7d246fbbf4bde69044ad93a270a013778f099ca484d8491837"
+    },
+    "Videos/robotarium/discovery.mp4": {
+      "bytes": 435444,
+      "sha256": "b541380bb56d4797126e34e84f0a6e09104ac315f33b45c1224a9ebc1261fea2"
+    }
+  },
+  "note": "Manifest excludes itself"
+}

@@ -1,4 +1,6 @@
 .venv/
+.venv-python39-backup/
+/requirements-backup.txt
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -267,3 +269,13 @@ Research_Notes/
 
 /Code/README.md
 /Videos/README.md
+
+# Keep the separate Robotarium validation evidence
+!/Results/robotarium/
+!/Results/robotarium/**/
+!/Results/robotarium/**/*.json
+!/Results/robotarium/**/*.csv
+!/Results/robotarium/**/*.npz
+!/Results/robotarium/**/*.png
+!/Videos/robotarium/
+!/Videos/robotarium/*.mp4

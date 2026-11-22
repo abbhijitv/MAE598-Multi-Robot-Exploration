@@ -1,0 +1,61 @@
+{
+  "configuration": {
+    "width": 20.0,
+    "height": 20.0,
+    "grid_size": 0.25,
+    "robot_c": 5,
+    "robot_r": 1.0555555555555556,
+    "sensing_r": 2.5,
+    "robot_interact_r": 4.0,
+    "robot_gain": 2.0,
+    "obstacle_interact_r": 2.0,
+    "obstacle_gain": 0.35,
+    "mass": 1.0,
+    "damping": 1.5,
+    "max_speed": 1.5,
+    "max_acc": 3.0,
+    "epsilon": 1e-06,
+    "duration": 99.0,
+    "dt": 0.033,
+    "seed": 2026,
+    "obstacle_boundary_sampling": 0.5,
+    "controller": "discovery",
+    "discovery_gain": 1.2,
+    "discovery_r": 5.0,
+    "obstacles": []
+  },
+  "scale_m_per_unit": 0.09,
+  "projection_distance_m": 0.03,
+  "initial_poses": [
+    [
+      -0.6324667736614744,
+      -0.4233185750369739,
+      -0.40711332618324875,
+      0.6462711571612167,
+      0.023023540810645216
+    ],
+    [
+      0.06044248758894678,
+      -0.139383421132443,
+      0.21052781874989035,
+      0.46542710176369645,
+      0.3074979674158183
+    ],
+    [
+      -3.0912928623910685,
+      -3.0912928623910685,
+      -3.0912928623910685,
+      -3.0912928623910685,
+      -3.0912928623910685
+    ]
+  ],
+  "effective_body_radius_m": 0.095,
+  "safety_radius_projected_m": 0.25,
+  "si_velocity_limit_m_s": 0.08,
+  "physical_workspace_m": [
+    -0.8999999999999999,
+    0.8999999999999999,
+    -0.8999999999999999,
+    0.8999999999999999
+  ]
+}

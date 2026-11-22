@@ -1,0 +1,19 @@
+{
+  "controller": "discovery",
+  "robot_count": 3,
+  "seed": 598,
+  "initial_coverage_percent": 13.203125,
+  "final_coverage_percent": 73.5625,
+  "travel_distance_m": 11.902955773654961,
+  "barrier_intervention_steps": 2059,
+  "wheel_limit_steps": 0,
+  "swept_guard_steps": 0,
+  "qp_warning_count": 0,
+  "native_errors": {},
+  "minimum_center_separation_m": 0.2759078617232702,
+  "minimum_body_boundary_clearance_m": 0.05472104361925168,
+  "minimum_body_obstacle_clearance_m": null,
+  "robot_collision_intervals": 0,
+  "obstacle_collision_intervals": 0,
+  "boundary_violation": false
+}
