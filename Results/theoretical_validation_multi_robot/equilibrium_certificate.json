@@ -1,0 +1,169 @@
+{
+  "checks": {
+    "strict_root_bracket": true,
+    "positive_collective_hessian": true,
+    "positive_hessian_on_position_ball": true,
+    "wall_active_sets_fixed_on_ball": true,
+    "robot_pair_active_on_ball": true,
+    "collision_free_position_ball": true,
+    "strict_invariant_sublevel": true
+  },
+  "robot_count": 2,
+  "equilibrium": [
+    [
+      0.7701250686750412,
+      1.0
+    ],
+    [
+      2.229874931324959,
+      1.0
+    ]
+  ],
+  "root_interval": [
+    0.7701250686740874,
+    0.770125068675995
+  ],
+  "root_interval_exact": [
+    "80753466401/104857600000",
+    "201883666003/262144000000"
+  ],
+  "left_endpoint_force_interval": [
+    6.951680313397476e-12,
+    6.951680313404907e-12
+  ],
+  "right_endpoint_force_interval": [
+    -1.3728539830176006e-12,
+    -1.3728539830101711e-12
+  ],
+  "root_force_interval": [
+    -1.131926163515256e-11,
+    1.6898087965539264e-11
+  ],
+  "equilibrium_representation_error_upper_bound": 1.3489140305240002e-12,
+  "collective_eigenvalue_intervals": [
+    [
+      1.7925520732105684,
+      1.792552073327027
+    ],
+    [
+      2.1362654951524,
+      2.1362654951989013
+    ],
+    [
+      4.364453437109242,
+      4.364453437286191
+    ],
+    [
+      0.8503141930563677,
+      0.8503141931129504
+    ]
+  ],
+  "collective_hessian": [
+    [
+      3.078502755233258,
+      0.0,
+      -1.2859506819644584,
+      0.0
+    ],
+    [
+      0.0,
+      1.4932898441301552,
+      0.0,
+      0.6429756510454954
+    ],
+    [
+      -1.2859506819644584,
+      0.0,
+      3.0785027552332576,
+      0.0
+    ],
+    [
+      0.0,
+      0.6429756510454954,
+      0.0,
+      1.4932898441301556
+    ]
+  ],
+  "equilibrium_force_norm": 3.9454853425505234e-12,
+  "active_wall_points_robot_1": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      2.0
+    ],
+    [
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      2.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      2.0
+    ],
+    [
+      1.5,
+      0.0
+    ],
+    [
+      1.5,
+      2.0
+    ],
+    [
+      2.0,
+      0.0
+    ],
+    [
+      2.0,
+      2.0
+    ],
+    [
+      2.5,
+      0.0
+    ],
+    [
+      2.5,
+      2.0
+    ],
+    [
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.5
+    ]
+  ],
+  "active_wall_point_count_per_robot": 15,
+  "active_robot_pairs": [
+    [
+      0,
+      1
+    ]
+  ],
+  "position_ball_radius": 0.001,
+  "hessian_lipschitz_upper_bound": 276,
+  "proved_hessian_lower_bound": 0.574,
+  "proved_hessian_upper_bound": 4.641,
+  "invariant_sublevel_energy": 1.435e-07,
+  "position_boundary_energy_lower_bound": 2.87e-07,
+  "wall_cutoff_margin_at_equilibrium_lower_bound": 0.0018840679205246868,
+  "pair_cutoff_margin_on_ball_lower_bound": 2.538835923785802,
+  "body_wall_clearance_on_ball_lower_bound": 0.5691250686740875,
+  "body_pair_clearance_on_ball_lower_bound": 1.0583356490856373,
+  "arithmetic": "Exact Fraction operations; square roots enclosed to 24 decimal places; exported interval endpoints rounded outward",
+  "proof_source": "Results/theoretical_validation_multi_robot/mathematical_derivation.md"
+}

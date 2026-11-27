@@ -1,0 +1,12 @@
+{
+  "summary.json": true,
+  "speed_vs_time.png": true,
+  "distance_to_equilibrium.png": true,
+  "parameters.json": true,
+  "equilibrium_certificate.json": true,
+  "perturbation_recovery.png": true,
+  "fixed_field_history.csv": true,
+  "energy_vs_time.png": true,
+  "video_validation.json": true,
+  "video_bytes_identical": true
+}

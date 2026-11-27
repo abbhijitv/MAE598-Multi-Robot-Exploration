@@ -1,0 +1,81 @@
+{
+  "files": {
+    "Results/theoretical_validation_multi_robot/candidate_checks.json": {
+      "sha256": "3cbcaad2e846fe058d9ba4ac02a4666c9261f58d53967ca4d57bcdf331bff47a",
+      "size_bytes": 1680
+    },
+    "Results/theoretical_validation_multi_robot/distance_to_equilibrium.png": {
+      "sha256": "26b621a5a1294e438381e3ecf5479549a1f984bd7923b4ee2d6b976463f0c003",
+      "size_bytes": 120835
+    },
+    "Results/theoretical_validation_multi_robot/energy_vs_time.png": {
+      "sha256": "9f18668b3dd5b6388b982a144d64a75c85e5027b49f2b1374b01c1f595da8e1c",
+      "size_bytes": 107737
+    },
+    "Results/theoretical_validation_multi_robot/equilibrium_certificate.json": {
+      "sha256": "204e86ef6ff45af11f31a6e6d932ed41ef0b5774d274c936901dcfd2cfc372d8",
+      "size_bytes": 3076
+    },
+    "Results/theoretical_validation_multi_robot/fixed_field_history.csv": {
+      "sha256": "df4cab560734af602c87df18960e7640a5a01b7c2a24c271f26582293445e81c",
+      "size_bytes": 958091
+    },
+    "Results/theoretical_validation_multi_robot/historical_replay_check.json": {
+      "sha256": "214b63a0746774b7b0f99b6601979420ff85c9c83547863a03251084feb2d3f6",
+      "size_bytes": 241
+    },
+    "Results/theoretical_validation_multi_robot/mathematical_derivation.md": {
+      "sha256": "4dd6bac19eed6b59b714b69583310fee14efac0894c9ce14723fc5b2c9a9bca7",
+      "size_bytes": 14512
+    },
+    "Results/theoretical_validation_multi_robot/parameters.json": {
+      "sha256": "7f9a29b597630535d553dbd03f02fb371a600afb49e5d1dc0c24a9f60cc05f33",
+      "size_bytes": 1305
+    },
+    "Results/theoretical_validation_multi_robot/perturbation_recovery.png": {
+      "sha256": "b47454d1dde0390cf9a7f38bd6364ff5db5e5ca2164fd629f099ee0affc3ebf8",
+      "size_bytes": 162508
+    },
+    "Results/theoretical_validation_multi_robot/reproduction_check.json": {
+      "sha256": "dd6cf1fa353e8e5a0a4a9688e270d0c749da4992bf3f76ee01ee0475fa7bb0b9",
+      "size_bytes": 330
+    },
+    "Results/theoretical_validation_multi_robot/speed_vs_time.png": {
+      "sha256": "a99e433d101379da43da714ef2f5a3739b82fcdc86bc8fbbe0be9f57ac18e791",
+      "size_bytes": 124017
+    },
+    "Results/theoretical_validation_multi_robot/summary.json": {
+      "sha256": "e06fa6f61c6c4bccf4450b92ab1a3397ad0e3fe5428542ee791906abc576a80b",
+      "size_bytes": 1092
+    },
+    "Results/theoretical_validation_multi_robot/test_results.txt": {
+      "sha256": "a356b328360b864ef127053e5e92a1dc2a3fab42402fa91a3ef74e9a4a399efa",
+      "size_bytes": 2248
+    },
+    "Results/theoretical_validation_multi_robot/verification.json": {
+      "sha256": "bbeb5efebb4c5bdfc209459862da0aa6df0b8b02e351c39f76f5761bd6ca924c",
+      "size_bytes": 3740
+    },
+    "Results/theoretical_validation_multi_robot/video_validation.json": {
+      "sha256": "12be4d9c960bc074a399047dca17ebe8fae913460dd5f77c5f4eabd32227d805",
+      "size_bytes": 189
+    },
+    "Videos/theoretical_validation_multi_robot/fixed_field.mp4": {
+      "sha256": "1266f5f6f3c8916b1c7207bd5d2fc81c448bdd4ac92693ef915b83d1488909f5",
+      "size_bytes": 325336
+    },
+    "Code/multi_robot_theoretical_analysis.py": {
+      "sha256": "9dfcca986d7061cf926023051e1a51f89fa14e2fca86c5d66aeea3ee6fcbaa7f",
+      "size_bytes": 25174
+    },
+    "Code/test_multi_robot_theory.py": {
+      "sha256": "6f2b48e19b38fe66f38483f1e44ebcdc468e444ee5209e91b7b2ffae7ba7ba72",
+      "size_bytes": 6790
+    },
+    "README.md": {
+      "sha256": "999124330bda9bf09bb1a14af64d93aa03b67c0961a1c5db8352414c572c15cf",
+      "size_bytes": 30443
+    }
+  },
+  "note": "The manifest excludes itself; local research notes remain separate."
+}

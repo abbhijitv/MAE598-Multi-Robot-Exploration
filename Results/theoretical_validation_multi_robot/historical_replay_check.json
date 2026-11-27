@@ -1,0 +1,10 @@
+{
+  "baseline": {
+    "final_coverage_percent": 24.132176234979973,
+    "complete_historical_replay_verified": true
+  },
+  "discovery": {
+    "final_coverage_percent": 99.31575433911883,
+    "complete_historical_replay_verified": true
+  }
+}

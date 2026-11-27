@@ -132,6 +132,14 @@ python Code/theoretical_analysis.py --output Results/theoretical_validation_repe
 
 This validation uses DOP853 integration without clipping or safety resets. It exports `fixed_field_history.csv`, parameters, an equilibrium certificate, a summary and four plots. The saved perturbation error decreases from approximately 0.00361 to 1.82e-9 units over 20 seconds within the certified 0.01-unit neighborhood. Numerical plots support the analysis; they are not mathematical proofs. The exported certificate contains a local research-note provenance path that is not part of the public repository.
 
+A separate interacting example uses two robots in a 3 × 2 workspace with the same continuous baseline force law, robot gain 2.0 and obstacle gain 0.35. Reflection symmetry and exact rational interval bounds establish an equilibrium near (0.770125068675,1) and (2.229874931325,1). All four collective Hessian eigenvalues are positive (approximately 0.8503, 1.7926, 2.1363 and 4.3645), including robot-pair coupling. A Hessian Lipschitz bound of 276 gives `0.574 I <= Hess U <= 4.641 I` within a collective 0.001-unit position ball. The collision-free ball has fixed interaction sets; the energy sublevel `W <= 1.435e-7` is positively invariant. The energy identity and LaSalle argument establish local asymptotic stability for this interacting example. Two robots allow a rigorous scalar equilibrium bracket; no three-robot or general-team stability claim follows.
+
+```sh
+python Code/multi_robot_theoretical_analysis.py --output Results/theoretical_validation_multi_robot_repeat --video-output Videos/theoretical_validation_multi_robot_repeat
+```
+
+This separate DOP853 experiment applies nonsymmetric position and velocity perturbations without caps or safety resets. Over 20 seconds, collective position error falls from 1.7146e-4 to 7.6536e-11 units; the maximum energy-balance residual is 1.211e-12. Final relative energy is at floating-point roundoff scale. The [derivation](Results/theoretical_validation_multi_robot/mathematical_derivation.md), [certificate](Results/theoretical_validation_multi_robot/equilibrium_certificate.json), [checks](Results/theoretical_validation_multi_robot/summary.json), [energy](Results/theoretical_validation_multi_robot/energy_vs_time.png), [speed](Results/theoretical_validation_multi_robot/speed_vs_time.png), [error](Results/theoretical_validation_multi_robot/distance_to_equilibrium.png) and [trajectories](Results/theoretical_validation_multi_robot/perturbation_recovery.png) preserve the proof and numerical evidence separately. The [video](Videos/theoretical_validation_multi_robot/fixed_field.mp4) uses 960×960, 20 fps and 401 frames (20.05 seconds including both endpoints), with a workspace view and labeled local displacement panels. Reproduction needs the existing runtime dependencies plus FFmpeg/FFprobe with `libx264`; nonempty output folders are refused. Earlier results and videos are preserved.
+
 ## Results and Visualizations
 
 All numerical findings here refer to the saved historical configurations, not current defaults.
@@ -249,6 +257,8 @@ PYTHON
 
 The original 48 tests passed before integration. Verification with Robotarium installed passed all 62 tests with 14 third-party Matplotlib/Pyparsing deprecation warnings. The 14 optional Robotarium tests skip when its dependencies are absent. The original simulator was also run with Robotarium and CVXOPT imports deliberately blocked.
 
+The interacting theoretical example adds six tests for interval bounds, the collective equilibrium and Hessian, fixed interaction neighborhoods, energy dissipation, recovery and independence from discrete motion caps. The complete suite now passes 68 tests with the same 14 third-party warnings when Robotarium is installed.
+
 The original suite has 48 tests covering forces, private sensing, target selection, dynamics, collision validation, experiment fairness, historical regression, potential derivatives and the local theoretical example. Historical regression restores saved configurations and checks complete trajectories, velocities and coverage; it does not require controller source bytes to remain identical after comment or configuration-name updates.
 
 Required saved fixtures are `Results/experiments/preservation.json` and `parameters.json`, `coverage.csv`, and `robot_positions.csv` under each of `Results/baseline/` and `Results/discovery/`. The preservation manifest includes older local file inventory entries, but the test checks only these six saved baseline/discovery files. The test loads this repository-relative manifest directly.
@@ -287,6 +297,8 @@ MAE598-Multi-Robot-Exploration/
 │   ├── experiments.py
 │   ├── comparison.py
 │   ├── theoretical_analysis.py
+│   ├── multi_robot_theoretical_analysis.py
+│   ├── test_multi_robot_theory.py
 │   ├── test_baseline.py
 │   ├── test_discovery.py
 │   ├── test_experiments.py
@@ -296,10 +308,12 @@ MAE598-Multi-Robot-Exploration/
 │   ├── discovery/
 │   ├── experiments/
 │   ├── theoretical_validation/
+│   ├── theoretical_validation_multi_robot/
 │   └── robotarium/
 └── Videos/
     ├── baseline.mp4
     ├── discovery.mp4
+    ├── theoretical_validation_multi_robot/
     └── robotarium/
 ```
 
@@ -309,7 +323,7 @@ Selected results retain presentation figures, configurations, summaries and the 
 
 Local nearest-target selection can oscillate, stagnate or revisit teammates' explored regions. The occupancy lookahead exceeds the exploration radius and must be justified for any hardware interpretation. Ideal sensing ignores occlusion; robots assume known bounds and poses. Sample density affects aggregate obstacle repulsion.
 
-The global synchronous collision safeguard may stop unrelated robots or deadlock, and instantaneous safety stops are exceptions to the acceleration cap. The complete simulator therefore combines local decisions with centralized geometric safety enforcement. Theoretical guarantees cover the restricted continuous baseline and a specific local equilibrium, not the full discovery controller. A small seed sample and idealized maps do not provide a hardware performance guarantee.
+The global synchronous collision safeguard may stop unrelated robots or deadlock, and instantaneous safety stops are exceptions to the acceleration cap. The complete simulator therefore combines local decisions with centralized geometric safety enforcement. Theoretical guarantees cover the restricted continuous baseline and the specific one- and two-robot local equilibria, not the full discovery controller. A small seed sample and idealized maps do not provide a hardware performance guarantee.
 
 ## References
 

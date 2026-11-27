@@ -1,0 +1,10 @@
+{
+  "codec_name": "h264",
+  "width": 960,
+  "height": 960,
+  "r_frame_rate": "20/1",
+  "duration": "20.050000",
+  "nb_frames": "401",
+  "size_bytes": 325336,
+  "full_decode_passed": true
+}
