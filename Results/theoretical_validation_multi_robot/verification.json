@@ -1,0 +1,52 @@
+{
+  "existing_files_checked": 407,
+  "changed_existing_result_video_or_research_files": [],
+  "existing_python_files_checked": 20,
+  "modified_existing_python_files": [],
+  "relative_readme_links_checked": 39,
+  "broken_relative_readme_links": [],
+  "display_math_delimiter_count": 8,
+  "display_math_delimiters_balanced": true,
+  "code_fences_balanced": true,
+  "tests": {
+    "passed": 68,
+    "failed": 0,
+    "third_party_warnings": 14
+  },
+  "environment_repair": "Reinstalled existing Robotarium 2.1.0 at the same pinned upstream revision; source unchanged. Disabled incompatible host readline import in the test launcher.",
+  "video_visual_inspection": "All four figures and video frames at 1 s and 10 s inspected; labels and local panels readable.",
+  "rendering_note": "README mathematical syntax checked; GitHub visual preview not available.",
+  "source_sha256": {
+    "Code/comparison.py": "fc87bd862a9332743ead5d481d6a4f80eb6f41e55cb8b7b7b4fd60485d612ecd",
+    "Code/config.py": "8049666b5a4a8fccab9832c2997a8f030b16eef556d0ce196722944ef3e32fc0",
+    "Code/controllers.py": "944d12ddba5f53cc203614e3c42abef843823a45833c06416690a252e815f0a1",
+    "Code/environment.py": "7990720100c3d22082a74eda5fac704cd3cfc944b53c17729a4536136b200fe8",
+    "Code/experiments.py": "3d8e088aae62b37a2254cf3cff452d1a1a9227f27f1451f21accb5b62e4e0eaf",
+    "Code/main.py": "d1c80dd43d1dc9638f3ed5525e67131b64946ce1ccd262422dbaf579b32e12a9",
+    "Code/render_videos.py": "64097acb1cc0d6d6bf9cb435f90d81a3d99967fff4167e3b24baa414d45abc53",
+    "Code/robotarium_analysis.py": "da05e35f4f15d5da4c400ec14a08da803134515f9bc364a7e9d0fb5c0e1af382",
+    "Code/robotarium_validation.py": "53fcb10bac59743f8ad1843208e93ab9bdec8c0015d9f4328167e7e9ae1f0ba2",
+    "Code/robots.py": "28a77f07d3da7e9e23326afeaca2221f8731c91ded25112fcdd429f1a16ad365",
+    "Code/simulation.py": "b474083655795d03ec4f7936c97bbf99db7b6f4366cf822181e1458d776d667a",
+    "Code/test_baseline.py": "9f4563b4908784a9d7799409dd5b00d2a228856f5a81f6c78efa560d1701e818",
+    "Code/test_discovery.py": "a91b6f772f67834868da47239b42f6f9a89cff6bcc3929ea40eae7d136c1a781",
+    "Code/test_experiments.py": "17caaad467751fcda585f6b50d3add3037c3715e9227f466d682dc650676d9dd",
+    "Code/test_robotarium.py": "c844d85ee45729cdf748b1c500cfdd2f6ed7ca05d3c0e74187f44d3b6ed48759",
+    "Code/test_theory.py": "5223b827a62b205678333932f6a36bf2344b40c803346390efb18c354bab49b3",
+    "Code/theoretical_analysis.py": "d36448701a676913472fff2232bac3aadea99b09844e886c4409700bc23b62ea",
+    "Code/validation.py": "300771c713639001886c1145ccda5a60b696b3589b62c4339b2a259aa53a0fb5",
+    "Code/visualization.py": "ea23a975e176bba4f4b320b5fdd2253916ef2cd55c53c8b9eab5a535a96bef85",
+    "Code/workspace_model.py": "80f18954ef72fa0262797c8ff228cf7c414def0d9cd7223270e76c207c6d9cec",
+    "Code/multi_robot_theoretical_analysis.py": "9dfcca986d7061cf926023051e1a51f89fa14e2fca86c5d66aeea3ee6fcbaa7f",
+    "Code/test_multi_robot_theory.py": "6f2b48e19b38fe66f38483f1e44ebcdc468e444ee5209e91b7b2ffae7ba7ba72"
+  },
+  "existing_nonempty_destination_refused": true,
+  "git_diff_check_passed": true,
+  "initial_failed_test_run": "67 passed, one existing Robotarium provenance test failed because its installation pointed to a stale temporary Git checkout; same pinned package was reinstalled, with no test edits.",
+  "commands": {
+    "generation": "python Code/multi_robot_theoretical_analysis.py",
+    "repeat": "python Code/multi_robot_theoretical_analysis.py --output /tmp/mae_multi_final/results --video-output /tmp/mae_multi_final/videos",
+    "tests": "import sys, pytest; sys.modules['readline'] = None; pytest.main(['Code/', '-q', '-p', 'no:cacheprovider'])"
+  },
+  "new_outputs_ignored_by_existing_gitignore": true
+}

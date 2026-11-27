@@ -1,0 +1,72 @@
+{
+  "configuration": {
+    "width": 3,
+    "height": 3,
+    "grid_size": 0.25,
+    "robot_c": 2,
+    "robot_r": 0.2,
+    "sensing_r": 2.5,
+    "robot_interact_r": 4.0,
+    "robot_gain": 2.0,
+    "obstacle_interact_r": 2.0,
+    "obstacle_gain": 0.35,
+    "mass": 1.0,
+    "damping": 1.5,
+    "max_speed": 1.5,
+    "max_acc": 3.0,
+    "epsilon": 1e-06,
+    "duration": 60.0,
+    "dt": 0.05,
+    "seed": 600,
+    "obstacle_boundary_sampling": 0.5,
+    "controller": "baseline",
+    "discovery_gain": 1.2,
+    "discovery_r": 5.0,
+    "obstacles": []
+  },
+  "scope": "Numerical candidate diagnostics; successful certificate is separate",
+  "candidates": [
+    {
+      "candidate": "diagonal",
+      "positions": [
+        [
+          1.0379638261305875,
+          1.0379638261305875
+        ],
+        [
+          1.9620361738694125,
+          1.9620361738694125
+        ]
+      ],
+      "force_norm": 7.364386412590295e-16,
+      "hessian_eigenvalues": [
+        -0.4290550768992731,
+        0.7485641311832842,
+        1.3631878695878543,
+        4.333047615056454
+      ],
+      "decision": "Rejected: negative collective Hessian eigenvalue; no local-minimum certificate"
+    },
+    {
+      "candidate": "horizontal",
+      "positions": [
+        [
+          0.8709818617497965,
+          1.5
+        ],
+        [
+          2.1290181382502036,
+          1.5
+        ]
+      ],
+      "force_norm": 2.220446049250313e-16,
+      "hessian_eigenvalues": [
+        -1.2356744632021448,
+        0.773327122927588,
+        1.5450377796873611,
+        5.5630379248812964
+      ],
+      "decision": "Rejected: negative collective Hessian eigenvalue; no local-minimum certificate"
+    }
+  ]
+}
